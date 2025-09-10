@@ -1,0 +1,66 @@
+\documentclass[12pt]{report} % You can use 'article' or 'book' class as well
+
+\usepackage{graphicx} % For including images
+\usepackage{pdfpages}
+\usepackage{hyperref}
+\usepackage{minted}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+	\centering
+	\vspace*{1cm} % Adjusts vertical space for the image
+	% Insert your image (use the actual path and filename of your image)
+	\includegraphics[width=0.3\textwidth]{../../images/KMITL Logo.png} % Adjust width as needed
+
+	\vspace{1cm} % Vertical space after the image
+	{\LARGE \textbf{Homework 7}} \\[0.5cm] % Title
+	\vspace{0.5cm}
+	{\large \textbf{01286233 Web Programming}} \\[0.5cm]
+	{\large \textbf{Software Engineering Program,}} \\[0.5cm]
+	{\large \textbf{Department of Computer Engineering,}} \\[0.5cm]
+	{\large \textbf{School of Engineering, KMITL}} \\[1cm]
+	{\Large 67011352 Theepakorn Phayonrat} \\[0.5cm] % Authors (Use \\ the separate authors)
+\end{titlepage}
+
+\section*{Code}
+
+\subsection*{HW7\_67011352\_Theepakorn.html}
+
+\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{html}{../HW7_67011352_Theepakorn.html}
+
+\newpage
+
+\subsection*{HW7\_67011352\_Theepakorn.css}
+
+\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{css}{../HW7_67011352_Theepakorn.css}
+
+\newpage
+
+\subsection*{HW7\_67011352\_Theepakorn.js}
+
+\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{js}{../HW7_67011352_Theepakorn.js}
+
+\newpage
+
+\section*{Input}
+
+\subsection*{transcript.json}
+
+\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{json}{../transcript.json}
+
+\newpage
+
+\section*{Output}
+
+\includegraphics[width=\textwidth]{./output.png}
+
+\section*{Comparison}
+
+Comparison to the real Unofficial Transcript in \url{https://www.reg.kmitl.ac.th/index/}
+
+\includepdf[pages=-]{./67011352_transcript.pdf}
+
+
+\end{document}
