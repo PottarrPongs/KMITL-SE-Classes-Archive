@@ -1,0 +1,88 @@
+\documentclass[12pt]{report} % You can use 'article' or 'book' class as well
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+
+\begin{document}
+
+
+\noindent Theepakorn Phayonrat 67011352
+
+\section*{Task 3: Complexit Analysis on Recursion (Do not use master method)}
+
+\subsection*{3.1 Show time complexity of $T(n) = 2T(\frac{n}{2}) + n$}
+
+\subsection*{Solution}
+
+\begin{multicols}{2} \notag
+
+\begin{align}
+    T(n) & = 2(T(\frac{n}{2})) + n \\
+    & = 2(2T(\frac{n}{2^{2}}) + \frac{n}{2}) + n \\
+    & = 2(2T(\frac{n}{2^{2}})) + n + n \\
+    & = 2^{2}T(\frac{n}{2^{2}}) + 2n \\
+    & = 2^{3}T(\frac{n}{2^{3}}) + 3n \\
+    & = 2^{4}T(\frac{n}{2^{4}}) + 4n \\
+    & . \\
+    & (Continue k times) \\
+    & . \\
+    T(n) & = 2^{k}T(\frac{n}{k}) + kn \\
+\end{align}
+
+\columnbreak
+
+\begin{align}
+    T(1) & = 1 \\
+    T(n) & = T(1) \\
+    \frac{n}{2^{k}} & = 1 \\
+    n & = 2^{k} \\
+    k & = log_{2}n \\
+    \\
+    T(n) & = 2^{k}T(\frac{n}{k}) + kn \\
+    & = n(T(1)) + nlog_{2}n \\
+    & = n + nlog_{2}n \\
+\end{align}
+
+\end{multicols}
+
+
+\subsection*{Answer}
+\noindent \therefore T(n) & = O(nlog(n)) \\
+
+\newpage
+
+\noindent Theepakorn Phayonrat 67011352
+\subsection*{3.2 Show time complexity of $T(n) = T(n - 1) + 1$}
+
+\subsection*{Solution}
+
+\begin{multicols}{2} \notag
+
+\begin{align}
+    T(n) & = (T(n - 2) + 1) + 1 \\
+    & = T(n - 2) + 2 \\
+    & = T(n - 3) + 3 \\
+    & = T(n - 4) + 4 \\
+    & . \\
+    & (Continue k times) \\
+    & . \\
+    T(n) & = T(n - k) + k \\
+\end{align}
+
+\columnbreak
+
+\begin{align}
+    T(0) & = 1 \\
+    \text{Assume}\ n - k & = 0 \\
+    \therefore n = k \\
+    \therefore T(n) = 1 + n \\
+\end{align}
+
+\end{multicols}
+
+
+\subsection*{Answer}
+\noindent \therefore T(n) & = O(n) \\
+
+\end{document}
