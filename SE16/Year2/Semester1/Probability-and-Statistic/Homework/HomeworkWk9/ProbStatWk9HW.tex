@@ -1,0 +1,168 @@
+\documentclass[12pt]{report} % You can use 'article' or 'book' class as well
+
+\usepackage{graphicx} % For including images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\usepackage{tikz}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+	\centering
+	\vspace*{1cm} % Adjusts vertical space for the image
+	% Insert your image (use the actual path and filename of your image)
+	\includegraphics[width=0.3\textwidth]{../images/KMITL Logo.png} % Adjust width as needed
+
+	\vspace{1cm} % Vertical space after the image
+	{\LARGE \textbf{Week 9 Homework}} \\[0.5cm] % Title
+	\vspace{0.5cm}
+	{\large \textbf{Probability Model and Data Analysis}} \\[0.5cm]
+    {\large \textbf{Software Engineering Program,}} \\[0.5cm]
+	{\large \textbf{Department of Computer Engineering,}} \\[0.5cm]
+	{\large \textbf{School of Engineering, KMITL}} \\[1cm]
+    {\Large 67011352 Theepakorn Phayonrat} \\[0.5cm] % Authors (Use \\ the separate authors)
+\end{titlepage}
+
+\section*{Homework of Functtions of RVs}
+
+\subsection*{Question 1:}
+
+\noindent Suppose that a random variable, $X$, has an expected value
+of 8 and a variance of 1.8. What is the expected value and variance of
+$-0.4 + 3X$?
+
+\subsection*{Solution}
+
+\noindent We know that $E[X] = 8$.
+
+\noindent Let $Y = -0.4 + 3X$.
+
+\begin{equation} \notag
+\begin{split}
+    \therefore Y & = -0.4 + 3X \\
+    \therefore E[Y] & = -0.4 + 3E[X] \\
+    & = -0.4 + 3(8) \\
+    & = -0.4 + 24 \\
+    \therefore E[Y] & = 23.6 \\
+    \\
+\end{split}
+\end{equation}
+
+\noindent Now, we know that $E[Y] = 23.6$.
+
+\begin{equation} \notag
+\begin{split}
+    \therefore Var[Y] & = Var[-0.4 + 3E[X]]; \text{a = 3}\\
+    \therefore Var[Y] & = a^{2} Var[X]\\
+    & = 3^{2}(1.8) \\
+    & = 9(1.8) \\
+    \therefore Var[Y] & = 16.2 \\
+    \\
+\end{split}
+\end{equation}
+
+\subsection*{Answer}
+
+$\therefore$ Expected value and the variance of $-0.4 + 3X$ are 23.6 and 16.2, respectively. \\
+
+\newpage
+
+\subsection*{Question 2:}
+
+\noindent Monitor three customer purchasing smartphones at the Apple IT
+store and observe whether each buys an iPhone 12 Pro Max for 40,000 THB
+or Samsung Galaxy S20 for 30,000 THB. The random variable $N$ is the
+number of customers purchasing an iPhone 12 Pro Max. Assume $N$ has PMF \\
+\\
+\[
+P_{N}[n] =
+\begin{cases}
+    0.4, n = 0 \\
+    0.2, n = 1, 2, 3 \\
+    0, n = otherwise \\
+\end{cases}
+\]
+\\
+\noindent $M$ THB is the amount of money paid by three customers. \\
+1. Express $M$ as a function of $N$ \\
+2. Find PMF of $M$ \\
+3. Find $E[M]$ \\
+4. Find $Var[M]$ \\
+
+
+\subsection*{Solution}
+
+\vspace{0.5cm}
+
+\noindent 1.
+
+\begin{equation} \notag
+\begin{split}
+    M & = 40000N + 30000(3 - N) \\
+    & = (40000 - 30000)N + 3(30000) \\
+    \therefore M & = 10000N + 90000 \\
+\end{split}
+\end{equation}
+
+\vspace{0.5cm}
+
+\noindent 2.
+
+\vspace{0.5cm}
+\[
+P_{M}[m] =
+\begin{cases}
+    0.4, m = 90000 \\
+    0.2, m = 100000, 110000, 120000 \\
+    0, m = otherwise \\
+\end{cases}
+\]
+
+\vspace{0.5cm}
+
+\newpage
+
+\noindent 3.
+
+\vspace{0.5cm}
+
+\noindent We know that $E[M] = 10000E[N] + 90000$ and $E[M] = \displaystyle\sum_{m}m \cdot P_{M}(m)$
+
+\begin{equation} \notag
+\begin{split}
+    E[M] & = 90000(0.4) + 100000(0.2) + 110000(0.2) + 120000(0.2) \\
+    & = 36000 + 20000 + 22000 + 24000 \\
+    \therefore E[M] & = 102000 \text{ THB} \\
+    \\
+\end{split}
+\end{equation}
+
+\vspace{0.5cm}
+
+\noindent 4.
+
+\vspace{0.5cm}
+
+\noindent To find $Var[M]$, we need to find $E[M^{2}]$. \\
+\noindent We know that $E[M^{2}] = \displaystyle\sum_{m}m^{2} \cdot P_{M}(m)$ \\
+
+\begin{equation} \notag
+\begin{split}
+    E[M^{2}] & = 90000^{2}(0.4) + 100000^{2}(0.2) + 110000^{2}(0.2) + 120000^{2}(0.2) \\
+    \therefore E[M^{2}] & = 10.54 \times 10^{9} = 10540000000 \\
+\end{split}
+\end{equation}
+
+\noindent Now, we can find $Var[M]$
+
+\begin{equation} \notag
+\begin{split}
+    Var[M] & = E[M^{2}] - (E[M])^{2} \\
+    \therefore Var[M] & = 10540000000 - 10404000000 = 136000000 \text{ THB}^{3} \\
+\end{split}
+\end{equation}
+
+\end{document}
