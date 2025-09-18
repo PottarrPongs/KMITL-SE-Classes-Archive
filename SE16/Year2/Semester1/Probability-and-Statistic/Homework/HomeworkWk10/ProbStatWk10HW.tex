@@ -1,0 +1,222 @@
+\documentclass[12pt]{report} % You can use 'article' or 'book' class as well
+
+\usepackage{graphicx} % For including images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+	\centering
+	\vspace*{1cm} % Adjusts vertical space for the image
+	% Insert your image (use the actual path and filename of your image)
+	\includegraphics[width=0.3\textwidth]{../images/KMITL Logo.png} % Adjust width as needed
+
+	\vspace{1cm} % Vertical space after the image
+	{\LARGE \textbf{Week 10 Homework}} \\[0.5cm] % Title
+	\vspace{0.5cm}
+	{\large \textbf{Probability Model and Data Analysis}} \\[0.5cm]
+    {\large \textbf{Software Engineering Program,}} \\[0.5cm]
+	{\large \textbf{Department of Computer Engineering,}} \\[0.5cm]
+	{\large \textbf{School of Engineering, KMITL}} \\[1cm]
+    {\Large 67011352 Theepakorn Phayonrat} \\[0.5cm] % Authors (Use \\ the separate authors)
+\end{titlepage}
+
+\section*{Homework of Continuous RVs}
+
+\subsection*{Question 1:}
+
+\noindent The random variable $X$ has a probability density function \\
+
+\[
+    f_{X}(x) =
+    \begin{cases}
+        cx & 0 \le x \le 2 \\
+        0 & otherwise
+    \end{cases}
+\]
+
+\noindent Use the PDF to find \\
+
+\noindent (a) the constant $c$ \\
+\noindent (b) $P[0 \le X \le 1]$ \\
+\noindent (c) $P[-\frac{1}{2} \le X \le \frac{1}{2}]$ \\
+\noindent (d) the CDF $F_{X}(x)$
+
+\subsection*{Solution}
+
+\noindent (a) \\
+
+\begin{align*}
+    \int_{0}^{2} c x \, dx & = 1 \\
+    c \int_{0}^{2} x \, dx & = 1 \\
+    \left c \frac{x^{2}}{2} \right|_{0}^{2} & = 1 \\
+    2c - 0c & = 1 \\
+    2c & = 1 \\
+    \therefore c & = \frac{1}{2} \\
+\end{align*}
+
+\newpage
+
+\noindent (b) \\
+
+\begin{align*}
+    P[0 \le X \le 1] & = \int_{0}^{1} \frac{1}{2}x \, dx \\
+    & = \left \frac{x^{2}}{4} \right|_{0}^{1} \\
+    \therefore P[0 \le X \le 1] & = \frac{1}{4} - \frac{0}{4} = \frac{1}{4} \\
+\end{align*}
+
+\noindent (c) \\
+
+\begin{align*}
+    P[-\frac{1}{2} \le X \le \frac{1}{2}] & = \int_{0}^{\frac{1}{2}} \frac{1}{2}x \, dx \text{ ; since } P[X \le 0] = 0 \\
+    & = \left \frac{x^{2}}{4} \right|_{0}^{\frac{1}{2}} \\
+    \therefore P[-\frac{1}{2} \le X \le \frac{1}{2}] & = \frac{1}{16} - \frac{0}{4} = \frac{1}{16} \\
+\end{align*}
+
+\noindent (d) \\
+
+From $F_{X}(x) & = \int_{0}^{x} f_{X}(u) \, du$ \\
+
+\begin{align*}
+    F_{X}(x) & = \int_{0}^{\frac{1}{2}} \frac{1}{2}x \, dx = \left \frac{x^{2}}{4} \right|_{0}^{x} \\
+\end{align*}
+
+
+\[
+    F_{X}(x) =
+    \begin{cases}
+        0 & x < 0 \\
+        \frac{x^{2}}{4} & 0 \le x \le 2 \\
+        1 & x > 2 \\
+    \end{cases}
+\]
+
+\newpage
+
+\subsection*{Question 2:}
+
+\noindent The cumulative distribution function of random variable $X$ is \\
+
+\[
+    F_{X}(x) =
+    \begin{cases}
+        0 & x < -1 \\
+        \frac{x + 1}{2} & -1 \le x < 1 \\
+        1 & x \ge 1 \\
+    \end{cases}
+\]
+
+\noindent Find the PDF $f_{X}(x)$ of $X$
+
+\subsection*{Solution}
+
+\begin{align*}
+    f_{X}(x) & = \frac{d F_{X}(x)}{d x} \\
+    & = \frac{d [\frac{x + 1}{2}]}{d x} \\
+    & = \frac{1}{2} \\
+\end{align*}
+
+\[
+    \therefore F_{X}(x) =
+    \begin{cases}
+        \frac{1}{2} & -1 \le x < 1 \\
+        0 & otherwise \\
+    \end{cases}
+\]
+
+\newpage
+
+\section*{Homework of Continuous RVs-Expected Value and $Var[X]$}
+
+\subsection*{Question}
+
+\noindent The probability density of the random variable $Y$ is \\
+
+\[
+    f_{Y}(y) =
+    \begin{cases}
+        \frac{3y^{2}}{2} & -1 \le y \le 1 \\
+        0 & otherwise
+    \end{cases}
+\]
+
+\noindent Sketch the PDF and find the following: \\
+
+\begin{align*}
+    &(1) \quad \text{the expected value } E[Y] \quad &&(2) \quad \text{the second moment } E[Y^{2}] \\
+    &(3) \quad \text{the variance } Var[Y] \quad &&(4) \quad \text{the standard deviation } \sigma_{Y} \\
+\end{align*}
+
+\subsection*{Solution}
+
+\[
+\begin{tikzpicture}
+    \begin{axis}[
+        axis lines=middle,
+        xlabel={$y$},
+        ylabel={$f_Y(y)$},
+        domain=-2:2,
+        ymin=0, ymax=1.8,
+        samples=100,
+        width=10cm,
+        height=6cm,
+        xtick={-2,-1,0,1,2},
+        ytick={0,0.5,1,1.5},
+    ]
+        % f_Y(y) between -1 and 1
+        \addplot[thick, blue, domain=-1:1] {(3/2)*x^2};
+
+        % outside [-1,1] it's zero
+        \addplot[thick, blue, domain=-2:-1] {0};
+        \addplot[thick, blue, domain=1:2] {0};
+
+        % vertical lines at -1 and 1 (to make it look like your sketch)
+        \addplot[dashed] coordinates {(-1,0) (-1,1.5)};
+        \addplot[dashed] coordinates {(1,0) (1,1.5)};
+    \end{axis}
+\end{tikzpicture}
+\]
+
+\newpage
+
+\noindent (1)
+
+\begin{align*}
+    E[Y] & = \int_{-1}^{1} y(\frac{3y^{2}}{2}) \, dy \\
+    & = \left \frac{3y^{4}}{8} \right|_{0}^{\frac{-1}{1}} \\
+    \therefore E[Y] & = \frac{3}{8} - \frac{3}{8} = 0 \\
+\end{align*}
+
+\noindent (2)
+
+\begin{align*}
+    E[Y^{2}] & = \int_{-1}^{1} y^{2}(\frac{3y^{2}}{2}) \, dy \\
+    & = \left \frac{3y^{5}}{10} \right|_{0}^{\frac{-1}{1}} \\
+    & = \frac{3}{10} - (-\frac{3}{10}) \\
+    \therefore E[Y^{2}] & = \frac{6}{10} = \frac{3}{5} \\
+\end{align*}
+
+\noindent (3)
+
+\begin{align*}
+    Var[Y] & = E[YY^{2}] - (E[Y])^{2} \\
+    \therefore Var[Y] & = \frac{3}{5} - 0 = \frac{3}{5} \\
+\end{align*}
+
+\newpage
+
+\noindent (4)
+
+\begin{align*}
+    \sigma_{Y} & = \sqrt{Var[Y]} \\
+    \therefore \sigma_{Y} & = \sqrt{\frac{3}{5}} \\
+\end{align*}
+
+\end{document}
