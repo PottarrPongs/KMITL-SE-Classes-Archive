@@ -7,4 +7,4 @@
 
 ---
 
-Lecturer: [Suntana Oudomying](https://ieeexplore.ieee.org/author/37085446217)
+Lecturer: [Phairoj Jatnachai](https://www.linkedin.com/in/phairoj-jatanachai-5b261ba1/)
