@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class MyBST_Basic_671352 {
-    private BNode root;
+    protected BNode root;
     public MyBST_Basic_671352() {  root = null; }
     public MyBST_Basic_671352(Integer[] input) {
         if (input.length == 0)
@@ -44,7 +44,6 @@ public class MyBST_Basic_671352 {
                         cur = cur.left;
                     }
                     else {
-                        /* your code 1 */
                         cur.left = new BNode(d);
                         cur.left.parent = cur;
                         return;
@@ -52,7 +51,6 @@ public class MyBST_Basic_671352 {
                 } else {  //(d >= p.data)
                     if (cur.right != null) {
                         cur = cur.right;
-                        /* your code 2 */
                     }
                     else {
                         cur.right = new BNode(d);
@@ -72,7 +70,6 @@ public class MyBST_Basic_671352 {
     private void printPreOrderRecurse (BNode node) {
         if (node == null) return; 
 
-         /* your code 4 */
         System.out.print(node.data + " ");
         printPreOrderRecurse(node.left);
         printPreOrderRecurse(node.right);
@@ -84,7 +81,6 @@ public class MyBST_Basic_671352 {
     }
     
     private void printPostOrderRecurse (BNode node) {
-        /* your code 5 */
         if (node == null) return;
 
         printPostOrderRecurse(node.left);
@@ -99,7 +95,6 @@ public class MyBST_Basic_671352 {
         if (node == null) return null;
         if (d == node.data) return node;
 
-        /* your code 6 */
         if (d < node.data) return searchRecurse(d, node.left);
         return searchRecurse(d, node.right);
     }
@@ -133,7 +128,7 @@ public class MyBST_Basic_671352 {
             for (int i = 0; i < size; i++) {
                 BNode cur = queue.poll();
                 System.out.print(cur.data + " ");
-                /* your code 9 */
+                
                 if (cur.left != null) {
                     queue.offer(cur.left);
                 }
