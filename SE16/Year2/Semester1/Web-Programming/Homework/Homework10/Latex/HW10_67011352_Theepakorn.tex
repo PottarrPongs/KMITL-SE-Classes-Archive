@@ -1,0 +1,50 @@
+\documentclass[12pt]{report} % You can use 'article' or 'book' class as well
+
+\usepackage{graphicx} % For including images
+\usepackage{pdfpages}
+\usepackage{hyperref}
+\usepackage{minted}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+	\centering
+	\vspace*{1cm} % Adjusts vertical space for the image
+	% Insert your image (use the actual path and filename of your image)
+	\includegraphics[width=0.3\textwidth]{../../images/KMITL Logo.png} % Adjust width as needed
+
+	\vspace{1cm} % Vertical space after the image
+	{\LARGE \textbf{Homework 10}} \\[0.5cm] % Title
+	\vspace{0.5cm}
+	{\large \textbf{01286233 Web Programming}} \\[0.5cm]
+	{\large \textbf{Software Engineering Program,}} \\[0.5cm]
+	{\large \textbf{Department of Computer Engineering,}} \\[0.5cm]
+	{\large \textbf{School of Engineering, KMITL}} \\[1cm]
+	{\Large 67011352 Theepakorn Phayonrat} \\[0.5cm] % Authors (Use \\ the separate authors)
+\end{titlepage}
+
+\section*{Code}
+
+\subsection*{HW10\_67011352\_Theepakorn.py}
+
+\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{py}{../HW10_67011352_Theepakorn.py}
+
+\newpage
+
+\section*{Result}
+
+\subsection{Setup and Run}
+
+\begin{minted}{sh}
+python -m venv .venv
+source .venv/bin/activate
+pip install ZODB
+python HW10_67011352_Theepakorn.py
+\end{minted}
+
+\subsection{Output}
+
+\inputminted[fontsize=\scriptsize, breaklines, breakanywhere, breakindent=1em]{}{../result.txt}
+
+\end{document}

@@ -1,0 +1,39 @@
+ID: 101    Course: Computer Programming           Credit: 4 
+ID: 201    Course: Web Programmin                 Credit: 4 
+ID: 202    Course: Software Engineering Principle Credit: 5 
+ID: 301    Course: Artificial Intelligent         Credit: 3 
+
+<-=- Transcript -=->
+ID: 1101   Name: Mr. Christian de Nenvillette
+Course list
+ID: 101    Course: Computer Programming           Credit: 4  Score: 34 Grade: F 
+ID: 201    Course: Web Programmin                 Credit: 4  Score: 88 Grade: A 
+ID: 301    Course: Artificial Intelligent         Credit: 3  Score: 69 Grade: C 
+Total GPA is: 2.00
+
+<-=- Transcript -=->
+ID: 1102   Name: Mr. Zhong Li
+Course list
+ID: 101    Course: Computer Programming           Credit: 4  Score: 100 Grade: A 
+ID: 201    Course: Web Programmin                 Credit: 4  Score: 99 Grade: A 
+ID: 202    Course: Software Engineering Principle Credit: 5  Score: 66 Grade: C 
+Total GPA is: 3.23
+
+<-=- Transcript -=->
+ID: 1103   Name: Mr. Dvalinn Durinson
+Course list
+ID: 101    Course: Computer Programming           Credit: 4  Score: 101 Grade: F 
+ID: 201    Course: Web Programmin                 Credit: 4  Score: 69 Grade: C 
+ID: 202    Course: Software Engineering Principle Credit: 5  Score: 34 Grade: F 
+ID: 301    Course: Artificial Intelligent         Credit: 3  Score: 56 Grade: C 
+Total GPA is: 0.88
+
+<-=- Transcript -=->
+ID: 1110   Name: Mr. Name ForExample
+Course list
+ID: 101    Course: Computer Programming           Credit: 4  Score: 75 Grade: B 
+ID: 201    Course: Web Programmin                 Credit: 4  Score: 81 Grade: A 
+ID: 202    Course: Software Engineering Principle Credit: 5  Score: 81 Grade: B 
+ID: 301    Course: Artificial Intelligent         Credit: 3  Score: 57 Grade: C 
+Total GPA is: 3.06
+

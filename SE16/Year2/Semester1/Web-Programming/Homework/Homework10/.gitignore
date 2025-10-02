@@ -1,0 +1,6 @@
+__pycache__/
+.venv/
+*.fs
+*.fs.index
+*.fs.lock
+*.fs.tmp
