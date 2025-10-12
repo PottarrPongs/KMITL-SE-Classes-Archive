@@ -7,4 +7,4 @@
 
 ---
 
-Lecturer: [Suntana Oudomying](https://ieeexplore.ieee.org/author/37085446217)
+Lecturer: [Visit Hirankitti](https://ieeexplore.ieee.org/author/37297783000)

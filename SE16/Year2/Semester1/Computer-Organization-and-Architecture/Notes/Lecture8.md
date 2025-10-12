@@ -122,6 +122,6 @@ CLK cycle(s) being wasted was used in instruction(s) that dropped after fetching
 
 ## Typical Pipeline Lengths
 
-## Diversifiede Pipelines
+## Diversified Pipelines
 
 ## Limits of Pipelining
