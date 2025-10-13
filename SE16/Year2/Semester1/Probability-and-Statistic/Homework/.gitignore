@@ -1,4 +1,9 @@
-**
-!.gitignore
-!**/*.tex
-!**/*67011352.pdf
+**/**.aux
+**/**.fdb_latexmk
+**/**.fls
+**/**.log
+**/**.out
+**/**.synctex.gz
+**/**.pdf
+
+!*67011352.pdf

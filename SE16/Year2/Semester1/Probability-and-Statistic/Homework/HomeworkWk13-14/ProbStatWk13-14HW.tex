@@ -1,0 +1,254 @@
+\documentclass[12pt]{report} % You can use 'article' or 'book' class as well
+
+\usepackage{graphicx} % For including images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{forest}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+	\centering
+	\vspace*{1cm} % Adjusts vertical space for the image
+	% Insert your image (use the actual path and filename of your image)
+	\includegraphics[width=0.3\textwidth]{../images/KMITL Logo.png} % Adjust width as needed
+
+	\vspace{1cm} % Vertical space after the image
+	{\LARGE \textbf{Week 13-14 Homework}} \\[0.5cm] % Title
+	\vspace{0.5cm}
+	{\large \textbf{Probability Model and Data Analysis}} \\[0.5cm]
+    {\large \textbf{Software Engineering Program,}} \\[0.5cm]
+	{\large \textbf{Department of Computer Engineering,}} \\[0.5cm]
+	{\large \textbf{School of Engineering, KMITL}} \\[1cm]
+    {\Large 67011352 Theepakorn Phayonrat} \\[0.5cm] % Authors (Use \\ the separate authors)
+\end{titlepage}
+
+\section*{Homework of Joint PMF, Joint PDF and Relationship of 2 RVs}
+
+\subsection*{Question 1}
+
+\noindent Random variables $X$ and $Y$ have joint PMF,
+
+\renewcommand{\arraystretch}{1.75}
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}[c]{|c|c|c|}
+            \hline
+            $P_{X, Y}(x, y)$ & $y = 0$ & $y = 1$ \\
+            \hline
+            $x = -1$ & $0$ & $\frac{1}{4}$ \\
+            \hline
+            $x = 0$ & $\frac{1}{6}$ & $0$ \\
+            \hline
+            $x = 1$ & $\frac{1}{12}$ & $\frac{1}{2}$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\noindent (1) Are $X$ and $Y$ independent? \\
+\noindent (2) Find $E[X]$ and $E[Y]$ \\
+\noindent (3) Find $Var[X]$ and $Var[Y]$ \\
+
+\subsection*{Solution}
+
+\newpage
+
+\subsection*{Question 2}
+
+\noindent Random variables $X$ and $Y$ have joint PMF,
+
+\renewcommand{\arraystretch}{1.75}
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}[c]{|c|c|c|c|}
+            \hline
+            $P_{X, Y}(x, y)$ & $y = 1$ & $y = 2$ & $y = 3$ \\
+            \hline
+            $x = 1$ & $\frac{2}{15}$ & $\frac{4}{15}$ & $\frac{3}{15}$ \\
+            \hline
+            $x = 2$ & $\frac{1}{15}$ & $\frac{1}{15}$ & $\frac{4}{15}$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\noindent (1) Are $X$ and $Y$ independent? \\
+\noindent (2) Find $E[X]$ and $E[Y]$ \\
+\noindent (3) Find $Var[X]$ and $Var[Y]$ \\
+
+\subsection*{Solution}
+
+\newpage
+
+\subsection*{Question 3}
+
+\noindent Random variables $X$ and $Y$ have joint PDF,
+
+\[
+f_{X, Y}(x, y) =
+\begin{cases}
+    \frac{1}{8}(x + y) & 0 < x < 2, 0 < y < 2 \\
+    0 & otherwise \\
+\end{cases}
+\]
+\noindent (1) Are $X$ and $Y$ independent? \\
+\noindent (2) Find $E[X]$ and $E[Y]$ \\
+
+\subsection*{Solution}
+
+\newpage
+
+\subsection*{Question 4}
+
+\[
+f_{X, Y}(x, y) =
+\begin{cases}
+    2 & x + y \le 1, x \ge 0, y \ge 0 \\
+    0 & otherwise \\
+\end{cases}
+\]
+
+\noindent (1) What is the marginal PDF of $f_{X}(x)$? \\
+\noindent (2) What is the marginal PDF of $f_{Y}(y)$? \\
+\noindent (3) Are $X$ and $Y$ independent? \\
+
+\subsection*{Solution}
+
+\newpage
+
+\subsection*{Question 5}
+
+\noindent Given the Joint PDF of $X$ and $Y$ \\
+
+\[
+f_{X, Y}(x, y) =
+\begin{cases}
+    c(x^{2} + \frac{xy}{2}) & 0 < x < 1, 0 < y < 2 \\
+    0 & otherwise \\
+\end{cases}
+\]
+
+\noindent (1) Find $c$ \\
+\noindent (2) Find the marginal PDF of $X$ \\
+\noindent (3) Find $P[X > Y]$ \\
+
+\subsection*{Solution}
+
+\newpage
+
+\subsection*{Question 6}
+
+\noindent Given the Joint PDF of $X$ and $Y$ \\
+
+\[
+f_{X, Y}(x, y) =
+\begin{cases}
+    c & x^{2} + y^{2} \le R^{2} \\
+    0 & x^{2} + y^{2} > R^{2} \\
+\end{cases}
+\]
+
+\noindent (1) Find $c$ \\
+\noindent (2) Find the marginal PDF of $X$ \\
+
+\subsection*{Solution}
+
+\newpage
+
+\subsection*{Question 7}
+
+\noindent Both $X$ and $Y$ are uniform variable in $(0, 1)$ and they
+are independent with each other \\
+
+\noindent (1) Show the joint PDF f $X$ and $Y$ \\
+\noindent (2) Find $P[X > Y]$ \\
+
+\subsection*{Solution}
+
+\newpage
+
+\subsection*{Question 8}
+
+\noindent Given Joint PDF of $X$ and $Y$ \\
+
+\[
+f_{X, Y}(x, y) =
+\begin{cases}
+    2e^{-x}e^{-2y} & 0 < x < \infty, 0 < y < \infty \\
+    0 & otherwise \\
+\end{cases}
+\]
+
+\noindent Are $X$ and $Y$ independent? \\
+
+\subsection*{Solution}
+
+\newpage
+
+\subsection*{Question 9}
+
+\noindent Given random variables $L$ and $T$ where $L$ represents the
+length of the fax in pages, $S_{L} = \{1, 2, 3\}$ and $T$ represents
+the time to send each pages, $S_{T} = \40, 60\}$ and have joint PMF \\
+
+\renewcommand{\arraystretch}{1.75}
+\begin{table}[H]
+    \begin{center}
+        \begin{tabular}[c]{|c|c|c|}
+            \hline
+            $P_{L, T}(l, t)$ & $t = 1 sec$ & $t = 2 sec$ \\
+            \hline
+            $l = 1 pages$ & $0.15$ & $0.1$ \\
+            \hline
+            $l = 2 pages$ & $0.30$ & $0.2$ \\
+            \hline
+            $l = 2 pages$ & $0.15$ & $0.1$ \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+\begin{align*}
+    &(1) \quad E[L] \textbf{ and } Var[L] \quad\quad && (2) \quad E[T] \textbf{ and } Var[T] \\
+    &(3) \quad \textbf{The correlation } r_{L}r_{T} = E[L, T] \quad\quad && (4) \quad \textbf{The covariance } Cov[L, T] \\
+    &(5) \quad \textbf{Are } L \textbf{ and } T \textbf{ Independent?} \quad\quad && \quad \\
+    \\
+\end{align*}
+
+\subsection*{Solution}
+
+\newpage
+
+\subsection*{Question 10}
+
+\noindent The joint probability density function of random variables 
+$X$ and $Y$ is \\
+
+\[
+f_{X, Y}(x, y) =
+\begin{cases}
+    xy & 0 \le x \le 1, 0 \le y \le 2 \\
+    0 & otherwise \\
+\end{cases}
+\]
+
+\begin{align*}
+    &(1) \quad E[X] \textbf{ and } Var[X] \quad\quad && (2) \quad E[Y] \textbf{ and } Var[Y] \\
+    &(3) \quad \textbf{The correlation } r_{X}r_{Y} = E[X, Y] \quad\quad && (4) \quad \textbf{The covariance } Cov[X, Y] \\
+    &(5) \quad \textbf{Are } X \textbf{ and } Y \textbf{ Independent?} \quad\quad && \quad \\
+    \\
+\end{align*}
+
+\subsection*{Solution}
+
+\end{document}
