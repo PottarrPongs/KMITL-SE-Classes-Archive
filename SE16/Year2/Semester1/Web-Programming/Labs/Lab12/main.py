@@ -1,3 +1,7 @@
+# === Import === #
+
+import re
+from fastapi.responses import HTMLResponse
 import persistent
 from persistent.list import PersistentList
 from typing import Optional, TypedDict
@@ -10,8 +14,15 @@ import BTrees._OOBTree
 import ZODB, ZODB.FileStorage
 import transaction
 import bcrypt
+from zope.interface.interface import ro
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+
+
+
+
+# === BackEnd Util Functions === #
 
 def gen_token(id: int) -> str:
     global root
@@ -55,7 +66,14 @@ def hash_password(password: str):
 def verify_password(plain_password, hashed_password):
     return bcrypt.checkpw(plain_password.encode("utf-8"), hashed_password.encode("utf-8"))
 
-    
+
+
+
+
+# === FastAPI === #
+
+# === FastAPI BaseModel === #
+
 class StudentBM(BaseModel):
     id: int
     name: str
@@ -70,6 +88,7 @@ class EnrollmentBM(BaseModel):
     score: int
 
 
+# === FastAPI init and cleanup === #
 
 def startup_event():
     global db, root
@@ -129,6 +148,11 @@ app = FastAPI(lifespan=lifespan)
 
 
 
+
+# === FastAPI routes === #
+
+# === route / === #
+
 @app.get("/")
 async def helloRoot():
     return {"message": "Hello world"}
@@ -143,8 +167,10 @@ async def getAllStudents():
         data[student].pop("password")
     return data
 
+# === route /student === #
+
 @app.post("/student/new")
-async def newStudent(stu: StudentBM):
+async def student_new(stu: StudentBM):
     students = root.students
     if stu.id in students:
         raise HTTPException(status_code=400, detail="Student exists")
@@ -155,7 +181,7 @@ async def newStudent(stu: StudentBM):
     return tmp
 
 @app.post("/student/login")
-async def login(stu: StudentLogin):
+async def student_login(stu: StudentLogin):
     students = root.students
     if stu.id not in students:
         raise HTTPException(status_code=400, detail="Invalid Username or password")
@@ -165,15 +191,8 @@ async def login(stu: StudentLogin):
     token = gen_token(user_record["id"])
     return { "access_token": token, "token_type": "token" }
 
-
-
-
-
-
-
 @app.post("/student/enroll")
-async def addSubject(subj: EnrollmentBM, cur_user:dict = Depends(get_current_user)):
-
+async def student_enroll(subj: EnrollmentBM, cur_user:dict = Depends(get_current_user)):
     global root
     student_id = cur_user["id"]
     student = root.students[student_id]
@@ -183,23 +202,12 @@ async def addSubject(subj: EnrollmentBM, cur_user:dict = Depends(get_current_use
     course_to_enroll = courses[subj.id]
     if student.getEnrollment(course_to_enroll):
         raise HTTPException(status_code=400, detail=f"{cur_user["name"]} already enrolled this course")
-    student.enrollCourse(course_to_enroll)
+    student.enrollCourse(course_to_enroll).setScore(subj.score)
     return {"message": f"Successfully enrolled {student.name} in {course_to_enroll.name}"}
-    # for e_subj in student.enrolls:
-    #     if subj.id == e_subj.course.id:
-    #         e_subj.setScore(subj.score)
-    #         transaction.commit()
-    #         return {"message": f"Successfully enrolled {student.name} in {course_to_enroll.name}"}
-    # raise HTTPException(status_code=400, detail=f"Unable to set score for {student.name} in {course_to_enroll.name}")
-
-
-
-
-
 
 
 @app.get("/student/enrollinfo")
-async def getSubject(cur_user: dict = Depends(get_current_user)):
+async def student_enrollinfo(cur_user: dict = Depends(get_current_user)):
     global root
     student = root.students[cur_user["id"]]
     result = []
@@ -207,8 +215,64 @@ async def getSubject(cur_user: dict = Depends(get_current_user)):
         result.append(e.getDetail())
     return result
 
+@app.get("/student/transcript")
+async def student_transcript(cur_user: dict = Depends(get_current_user)):
+    global root
+    student = root.students[cur_user["id"]]
+    return student.getTranscript()
+
+@app.get("/student/transcript/html", response_class=HTMLResponse)
+async def student_transcript_html(cur_user: dict = Depends(get_current_user)):
+    global root
+    student = root.students[cur_user["id"]]
+    transcript = student.getTranscript()
+    result = f"""
+    <html>
+        <body>
+            <h1>Unofficial Transcript</h1>
+            <h2>Student ID: {transcript["id"]}</h2>
+            <h2>Name: {transcript["name"]}</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Course ID</th>
+                        <th>Title</th>
+                        <th>Credit</th>
+                        <th>Score</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+    """
+
+    for en in transcript["enroll"]:
+        result += f"""
+                        <tr>
+                            <td>{en["id"]}</td>
+                            <td>{en["name"]}</td>
+                            <td>{en["credit"]}</td>
+                            <td>{en["score"]}</td>
+                            <td>{en["grade"]}</td>
+                        </tr>
+        """
+
+    fmt_gpa = format(transcript["gpa"], ".2f")
+
+    result += f"""
+                </tbody>
+                </thead>
+            </table>
+            <h3>GPA: {fmt_gpa}</h3>
+
+        </body>
+    </html>
+    """
+    return result
+
+
+
 @app.post("/student/logout")
-async def logout(cur_user: dict = Depends(get_current_user)):
+async def student_logout(cur_user: dict = Depends(get_current_user)):
     id = cur_user["id"]
     token_user = root.token_user
     for token in token_user:
@@ -217,25 +281,75 @@ async def logout(cur_user: dict = Depends(get_current_user)):
                 del token_user[token]
         return {"message": f"Bye {cur_user["name"]}"}
 
+# === route /course === #
+
+@app.get("/course")
+async def course_root():
+    global root
+    result = dict()
+    for (k, v) in root.courses.items():
+        result[k] = v
+    return result
+
+@app.get("/course/html", response_class=HTMLResponse)
+async def course_html():
+    global root
+    result = """
+    <html>
+        <body>
+            <h1>Courses</h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Credit</th>
+                    </tr>
+                </thead>
+                <tbody>
+    """
+
+    for c in root.courses.keys():
+        result += f"""
+                        <tr>
+                            <td>{root.courses[c].id}</td>
+                            <td>{root.courses[c].name}</td>
+                            <td>{root.courses[c].credit}</td>
+                        </tr>
+        """
+
+    result += """
+                </tbody>
+                </thead>
+            </table>
+        </body>
+    </html>
+    """
+    return result
 
 
 
 
 
+# === ZODB === #
 
+# === Util TypedDict === #
 
-
-
-
-
-# Classes in ZODB
-
-class CourseGetDetailResult(TypedDict):
+class EnrollmentGetDetailResult(TypedDict):
     id: int
     name: str
     credit: int
     score: float
     grade: str
+
+
+class TranscriptGetResult(TypedDict):
+    id: int
+    name: str
+    enroll: list[EnrollmentGetDetailResult]
+    gpa: float
+
+# === Classes === #
 
 class Student(persistent.Persistent):
     def __init__(self, student_id: int, name: str, password: str = "") -> None:
@@ -268,6 +382,17 @@ class Student(persistent.Persistent):
                 return e
         return None
 
+    def getTranscript(self) -> TranscriptGetResult:
+        enroll = []
+        for e in self.enrolls:
+            enroll.append(e.getDetail())
+        return {
+            "id": self.id,
+            "name": self.name,
+            "enroll": enroll,
+            "gpa": self.getGPA()
+        }
+
     def printTranscript(self) -> None:
         print("<-=- Transcript -=->")
         print(f"ID: {self.id:<6} Name: {self.name}")
@@ -276,7 +401,7 @@ class Student(persistent.Persistent):
             e.printDetail()
         gpa = self.getGPA()
         print(f"Total GPA is: {gpa:.2f}")   
-        
+
     def getGPA(self) -> float:
         numerator = 0
         denominator = 0
@@ -333,7 +458,7 @@ class Enrollment(persistent.Persistent):
         print(f"ID: {self.course.id:<6} Course: {self.course.name:<30} "
          f"Credit: {self.course.getCredit():<2} Score: {self.getScore():<2} Grade: {self.getGrade():<2}")
 
-    def getDetail(self) -> CourseGetDetailResult:
+    def getDetail(self) -> EnrollmentGetDetailResult:
         return {
             "id": self.course.id,
             "name": self.course.name,
@@ -379,4 +504,3 @@ class Course (persistent.Persistent):
 
     def setGradeScheme(self, scheme: list) -> None:
         self.grading = scheme
-
