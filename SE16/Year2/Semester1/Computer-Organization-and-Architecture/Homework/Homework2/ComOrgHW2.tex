@@ -1,0 +1,212 @@
+\documentclass[34pt]{report} % You can use 'article' or 'book' class as well
+
+\usepackage{graphicx} % For including images
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{tabularray}
+\usepackage{minted}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+	\centering
+	\vspace*{1cm} % Adjusts vertical space for the image
+	% Insert your image (use the actual path and filename of your image)
+	\includegraphics[width=0.3\textwidth]{../images/KMITL Logo.png} % Adjust width as needed
+
+	\vspace{1cm} % Vertical space after the image
+	{\LARGE \textbf{Homework 2}} \\[0.5cm] % Title
+	\vspace{0.5cm}
+	{\large \textbf{Computer Archiecture and Organization}} \\[0.5cm]
+	{\large \textbf{Sofware Engineering Program,}} \\[0.5cm]
+	{\large \textbf{School of Computer Engineering, KMITL}} \\[4cm]
+	{\Large 67011352 Theepakorn Phayonrat} \\[0.5cm] % Authors (Use \\ the separate authors)
+\end{titlepage}
+
+\section*{Design Your Own 8-bit Assembly to Hex Instruction Set}
+
+\subsection*{Objective:}
+
+Design a single instruction set and define a format to represent each
+instruction to hexadecimal. Then, write sample programs using assembly,
+and convert them to hex codes suitable for keying into a simulated SBC
+(Single Board Computer).
+
+\subsection*{System Specifications:}
+
+\begin{itemize}
+    \item CPU: 8-bit
+    \item Registers: R0 top R10 (R0 is the accumulator)
+    \item Instruction Size: 3 bytes (24 bits)
+    \begin{itemize}
+        \item Byte 1: Opcode
+        \item Byte 2: Operand 1 (e.g., register)
+        \item Byte 3: Operand 2 (register, address, or immediate)
+    \end{itemize}
+\end{itemize}
+
+\subsection*{Required Instructions:}
+
+\begin{tabular}{ l @{\hspace{4cm}} l }
+    \vspace{0.15cm}
+    Mnemonic & Description \\
+    LD & Load immediateor from memory \\
+    ST & Store accumulator to memory \\
+    ADD & Add register or immediate to R0 \\
+    SUB & Subtract register or immediate \\
+    SHL & Shift R0 left by 1 bit \\
+    SHR & Shift R0 right by 1 bit \\
+    BR & Unconditional branch \\
+    BRZ & Branch id zero (R0 == 0) \\
+    BRG & Branch id zero (R0 $>$ 0) \\
+    JSR & Jump to subroutine \\
+    RET & Return from subroutine \\
+\end{tabular}
+
+\vspace{0.5cm}
+
+\noindent You may add 1-2 extra instructions and explain their purpose.
+
+\newpage
+
+\subsection*{Part 1: Instruction Encoding}
+
+\noindent 1. Define your own opcode mapping. Example:
+
+\vspace{0.2cm}
+
+\begin{tabular}{ l @{\hspace{4cm}} l }
+    \vspace{0.15cm}
+    Mnemonic & Description \\
+    LD & 0x01 \\
+    ST & 0x02 \\
+\end{tabular}
+
+\vspace{0.2cm}
+
+\noindent 2. Define instruction format. For example:
+
+\vspace{0.2cm}
+
+\begin{tabular}{ l l l }
+    \vspace{0.15cm}
+    LD R0, \#12 & \rightarrow & 01 00 0C \\
+    ADD R0, \#20 & \rightarrow & 03 00 14 \\
+
+\end{tabular}
+
+\subsection*{Part 2: Sample Assembly Program}
+
+\noindent Write an assembly program ($\sim$ 10 instructions) that:
+
+\begin{itemize}
+    \item Load a number into R0
+    \item Add another number
+    \item Stores result in memory
+    \item Checks result and branches if $>$ 0
+    \item Calls a subroutine to clear R0
+    \item Returns to main program
+\end{itemize}
+\vspace{0.2cm}
+
+\subsection*{Part 3: Hex Code Conversion}
+
+\noindent Convert your program into hex. Foer example:
+\vspace{0.2cm}
+
+\begin{tabular}{ l @{\hspace{4cm}} l }
+    \vspace{0.15cm}
+    LD R0, #12 & ; 01 00 0C\\
+\end{tabular}
+
+\subsection*{Deliverables:}
+\begin{enumerate}
+    \item Instruction set table with opcodes
+    \item Assembly program(approx. 10 lines)
+    \item Hexadecimal representation of program
+    \item A step-by-step explanation of what each instruction does during the \textbf{fetch-decode-execute-store} cycle.
+    \item Explanation of anny additional instructions \\
+
+\end{enumerate}
+
+\newpage
+
+\subsection*{Part 1.0 Answer:}
+
+Added 2 instructions \\
+
+\begin{tabular}{ l @{\hspace{4cm}} l }
+    \vspace{0.15cm}
+    Mnemonic & Description \\
+    LD & Load immediateor from memory \\
+    ST & Store accumulator to memory \\
+    ADD & Add register or immediate to R0 \\
+    SUB & Subtract register or immediate \\
+    SHL & Shift R0 left by 1 bit \\
+    SHR & Shift R0 right by 1 bit \\
+    BR & Unconditional branch \\
+    BRZ & Branch id zero (R0 == 0) \\
+    BRG & Branch id zero (R0 $>$ 0) \\
+    JSR & Jump to subroutine \\
+    RET & Return from subroutine \\
+    CMP & Compare 2 registers given as arguments \\
+    SYS & System Call (Software Interupt) \\
+
+\end{tabular}
+
+
+\subsection*{Part 1.1 Answer:}
+
+Assigned opcode to every instruction \\
+
+\begin{tabular}{ l @{\hspace{4cm}} l }
+    \vspace{0.15cm}
+    Mnemonic & Opcode \\
+    LD & 0x01 \\
+    ST & 0x02 \\
+    ADD & 0x03 \\
+    SUB & 0x04 \\
+    SHL & 0x05 \\
+    SHR & 0x06 \\
+    BR & 0x07 \\
+    BRZ & 0x08 \\
+    BRG & 0x09 \\
+    JSR & 0x0A \\
+    RET & 0x0B \\
+    CMP & 0x0C \\
+    SYS & 0x0D \\
+
+\end{tabular}
+
+\newpage
+
+\subsection*{Part 1.2 Answer:}
+
+\begin{tabular}{ l l l }
+    \vspace{0.15cm}
+    LD R0, \#12 & \rightarrow & 01 00 0C \\
+    ST R0, \#12 & \rightarrow & 02 00 0C \\
+    ADD R0, \#20 & \rightarrow & 03 00 14 \\
+    SUB R0, \#20 & \rightarrow & 04 00 14 \\
+    SHL R0, \#20 & \rightarrow & 05 00 14 \\
+    SHR R0, \#20 & \rightarrow & 06 00 14 \\
+    BR R0, \#20 & \rightarrow & 07 00 14 \\
+    BRZ R0, \#20 & \rightarrow & 08 00 14 \\
+    BRG R0, \#20 & \rightarrow & 09 00 14 \\
+    JSR loop & \rightarrow & 0A 1F (If $loop$ subroutine is 31) \\
+    RET \#1 & \rightarrow & 0B 01 \\
+    CMP R0, R1 & \rightarrow & 0C 00 01 \\
+    SYS 1 & \rightarrow & 0D 01 \\
+
+\end{tabular}
+
+\subsection*{Part 2 Answer:}
+
+\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{txt}{./ComOrgHW2P2.s}
+
+\subsection*{Part 3 Answer:}
+
+\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{txt}{./ComOrgHW2P3.hex}
+
+\end{document}
