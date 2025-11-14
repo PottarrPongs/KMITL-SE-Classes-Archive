@@ -2,9 +2,9 @@
 
 ## Resources
 
-- [Notes](Notes/README.md)
+<!-- - [Notes](Notes/README.md) -->
 - [Labs](Labs/README.md)
 
 ---
 
-Lecturer: [Phairoj Jatnachai](https://www.linkedin.com/in/phairoj-jatanachai-5b261ba1/)
+Lecturer: [Suntana Oudomying](https://ieeexplore.ieee.org/author/37085446217)

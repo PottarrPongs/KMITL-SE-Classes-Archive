@@ -1,0 +1,7 @@
+*.md
+
+images/
+
+*
+!.gitignore
+!Exam-Notes/

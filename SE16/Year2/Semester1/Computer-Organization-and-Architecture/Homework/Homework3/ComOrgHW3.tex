@@ -1,0 +1,142 @@
+\documentclass[34pt]{report} % You can use 'article' or 'book' class as well
+
+\usepackage{graphicx} % For including images
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{minted}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+	\centering
+	\vspace*{1cm} % Adjusts vertical space for the image
+	% Insert your image (use the actual path and filename of your image)
+	\includegraphics[width=0.3\textwidth]{../images/KMITL Logo.png} % Adjust width as needed
+
+	\vspace{1cm} % Vertical space after the image
+	{\LARGE \textbf{Homework 3}} \\[0.5cm] % Title
+	\vspace{0.5cm}
+	{\large \textbf{Computer Archiecture and Organization}} \\[0.5cm]
+	{\large \textbf{Sofware Engineering Program,}} \\[0.5cm]
+	{\large \textbf{School of Computer Engineering, KMITL}} \\[4cm]
+	{\Large 67011352 Theepakorn Phayonrat} \\[0.5cm] % Authors (Use \\ the separate authors)
+\end{titlepage}
+
+\chapter*{Hurkle Game}
+
+\subsection*{How to compile and Run}
+
+\begin{lstlisting}[language=Bash ,basicstyle=\footnotesize\ttfamily]
+as hurkle.s -o hurkle.o
+ld hurkle.0 -o hurkle
+./hurkle
+\end{lstlisting}
+
+\section*{Design and Implementation Details}
+
+\subsection*{Structure}
+
+\begin{enumerate}
+    \item \texttt{init\_game}
+        \begin{itemize}
+            \item \textbf{Purpose}: Sets up the initial game state.
+            \item \textbf{Description}: Calls \texttt{init\_random} to
+                seed PRNG, then generates two random coordinates using
+                \texttt{generate\_one_random\_number}.
+        \end{itemize}
+    \item \texttt{init\_random}
+        \begin{itemize}
+            \item \textbf{Purpose}: Initialize seed for random.
+            \item \textbf{Description}: Opens \texttt{/dev/urandom},
+                get seed and initializes \texttt{PRNG}.
+        \end{itemize}
+    \item \texttt{generate_one_random_number}
+        \begin{itemize}
+            \item \textbf{Purpose}: Generate a random number.
+            \item \textbf{Description}: Generates a random number and
+                stores into \texttt{r0}.
+        \end{itemize}
+\newpage
+    \item \texttt{game\_loop}
+        \item \textbf{Purpose}: Control the main flow of the game.
+        \item \textbf{Description}:
+            \begin{enumerate}
+                \item Check whether player guesses 10 time.
+                    \begin{itemize}
+                        \item \textbf{Yes}: End game with player lose.
+                        \item \textbf{No}: Increment the guess count
+                            and continue to get player input.
+                    \end{itemize}
+                \item Check whether player guess is correct.
+                    \begin{itemize}
+                        \item \textbf{Yes}: End game with player won.
+                        \item \textbf{No}: Give hint then continue
+                            looping until game end.
+                    \end{itemize}
+            \end{enumerate}
+        \end{itemize}
+    \item \texttt{get\_player\_guess}
+        \begin{itemize}
+            \item \textbf{Purpose}: Take player input to continue the game.
+            \item \textbf{Description}: Takes player input and convert to
+                2 integers to check the hurkle location.
+        \end{itemize}
+    \item \texttt{give\_feedback}
+        \begin{itemize}
+            \item \textbf{Purpose}: Help player find hurkle
+            \item \textbf{Description}: Compares the X Y coordinates
+                to give hint to player
+                \begin{itemize}
+                    \item Compares Y coordinates: prints "Too high!" or "Too low!"
+                    \item Compares X coordinates: prints "Too far left!" or "Too far right!"
+                    \item Calculates Manhattan distance: $|GX - HX| + |GY - HY|$. \\
+                        If Manhattan distance \le 2, prints \texttt{"You are very close!"}
+                \end{itemize}
+        \end{itemize}
+    \item \texttt{print\_string}
+        \begin{itemize}
+            \item \textbf{Purpose}: Print string as ASCII output
+            \item \textbf{Description}: Uses \texttt{SVC} with 4 in
+                \texttt{r7}.
+        \end{itemize}
+    \item \texttt{itoa}
+        \begin{itemize}
+            \item \textbf{Purpose}: Convert integer to ASCII.
+            \item \textbf{Description}: Builds string backward and copies
+                to buffer by repeatedly dividing that integer by 10.
+        \end{itemize}
+\end{enumerate}
+
+\subsection*{Key Designs Choices}
+
+\begin{enumerate}
+    \item \textbf{Randomness}: Use \texttt{/dev/urandom} to random
+        number for this program.
+    \item \textbf{Parsing integer to ASCII from user input}: Since the
+        game need only 2 of 1 digit number from 0 to 9, we can split
+        by skipping whitespace, take those 2 input and subtract by
+        \texttt{'0'} to get integer value of the input.
+\end{enumerate}
+
+\section*{Challenges faced with Solutions}
+
+\begin{center}
+    \setlength{\extrarowheight}{5pt} % Adds 5pt to each row's height
+    \begin{tabular}{| m{7.5cm} | m{7.5cm} |}
+        \hline
+        \textbf{Challenge} & \textbf{Solution} \\[4pt]
+        \hline
+        ARM System Calls are complicate to understand if you do not have that much knowledge in this field & Go to \href{https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md}{here} and read the specifications. \\
+        \hline
+        We need to convert integer back to ASCII every time we output to the terminal. & Create \texttt{itoa} to convert back to ASCII. \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\section*{Game Demo}
+\link{https://youtu.be/1oMMeVF0yOg}
+
+\end{document}

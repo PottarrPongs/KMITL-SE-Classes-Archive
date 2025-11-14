@@ -1,132 +1,102 @@
-from fastapi import FastAPI, Body, Request, HTTPException, Depends, Header
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from random import randint
+from typing import Annotated, Optional
+from fastapi import FastAPI, Request
+from pydantic import BaseModel
 import bcrypt
+import jwt
+import datetime
 
 app = FastAPI()
+SECRET_KEY = "i_love_osu_very_much"  # store in env var in real projects
 
-@app.get("/")
-async def root():
-    return "Hello, World!"
+def hashPassword(p: str):
+    salt = bcrypt.gensalt()
+    hashed = bcrypt.hashpw(p.encode("utf-8"), salt)
+    return hashed
 
-def hash_password(password: str):
-    password_utf8 = password.encode("utf-8")
-    return bcrypt.hashpw(password_utf8, bcrypt.gensalt())
+def create_access_token(user_id: str):
+    id = "user" + user_id
+    payload = {
+        "sub": id,  # subject (user identifier)
+        "iat": datetime.datetime.now(datetime.timezone.utc)  # issued at
+    }
+    token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+    return token
 
-def verify_password(plain_password: str, hashed_password):
-    return bcrypt.checkpw(plain_password.encode("utf-8"), hashed_password)
+class Student(BaseModel):
+    id: str
+    name: str
+    password: str
 
-user_db = {
+class StudentLogin(BaseModel):
+    id: str
+    password: str
+
+class Secret(BaseModel):
+    secret: str 
+
+students = {
     "1": {
         "id": "1",
-        "name": "Name ForExample",
-        "enroll": []
+        "name": "Alice",
+        "secret": "I am a lesbian"
     },
     "2": {
         "id": "2",
-        "name": "Nixon",
-        "enroll": []
-    },
+        "name": "Bob",
+        "secret": "I love men"
+    }
 }
 
-user_pw = {
+studentsHash = {
     "1": {
-        "hashed_password": hash_password("Name")
+        "access_token": create_access_token("1"),
+        "token_type": "token"
     },
     "2": {
-        "hashed_password": hash_password("NixOS")
-    },
+        "access_token": create_access_token("2"),
+        "token_type": "token"
+    }
 }
 
-user_token = dict()
+studentsPassword = {
+    "1": hashPassword("abc"),
+    "2": hashPassword("def")
+}
 
-@app.get("/student/all")
-async def get_all_std():
-    return user_db
+@app.get("/students/all")
+def getAllStudents():
+    return students
 
-@app.post("/login")
-async def login(id: str = Body(), password: str = Body()):
-    user_record = user_db.get(id)
-    if not user_record:
-        raise HTTPException(status_code=400, detail="Invalid username or password")
-    if not verify_password(password, user_pw[id]["hashed_password"]):
-        raise HTTPException(status_code=400, detail="Invalid username or password")
-    return {"message": "Login successful"}
-
-@app.post("/student/new")
-async def new_std(id: str = Body(), name: str = Body(), password: str = Body()):
-    if id in user_db:
-        raise HTTPException(status_code=400, detail="User already exists")
+@app.post("/students/new")
+def newStudent(stu: Student):
+    if stu.id in students:
+        return {"detail": "Student already exists"}
     else:
-        new_user = {
-            "id": id,
-            "name": name,
-            "enroll": []
+        students[stu.id] = {
+            "id": stu.id,
+            "name": stu.name,
+            "secret": "None"
         }
-        
-        user_db[id] = new_user
-        user_pw[id] = {
-        "hashed_password": hash_password(password)
+        studentsHash[stu.id] = {
+            "access_token": create_access_token(stu.id),
+            "token_type": "token"
         }
-        print(user_db)
-        return {
-            "detail": "Created Successfully"
-        } 
+        studentsPassword[stu.id] = hashPassword(stu.password)
+        return stu
 
-@app.post("/student/login")
-async def login_std(id: str = Body(), password: str = Body()):
-    if id not in user_db:
-        return {
-            "detail": "Invalid username or password"
-        } 
+@app.post("/students/login")
+def login(stu: StudentLogin):
+    if stu.id not in students or not bcrypt.checkpw(stu.password.encode("utf-8"), studentsPassword[stu.id]):
+        return {"detail": "Invalid id or password"}
     else:
-        if verify_password(password, user_pw[id]["hashed_password"]):
-            new_token = gen_token(id)
-            print(new_token)
+        return studentsHash[stu.id]
 
-            return {
-                "access_token": f"token {new_token}",
-                "token_type": "token"
-            }
-        else:
-            return {
-                "detail": "Invalid username or password"
-            } 
-
-
-def gen_token(id:str):
-    for token in user_token:
-        if user_token[token] == id:
-            return token
-    token = "%020x" %(randint(0, 0xffffffffffffffffffff))
-    while token in user_token:
-        token = "%020x" %(randint(0, 0xffffffffffffffffffff))
-    user_token[token] = id
-    return token
-
-@app.post("/student/enroll")
-async def std_enroll(id: str = Body(), name: str = Body(), grade: str = Body(), auth: str = Header()):
-    user_record = get_current_user(auth)
-
-    print(user_record)
-
-
-def verify_token(token: str):
-    token = token.lower()
-    if token in user_token:
-        return user_token[token]
-    return None
-
-async def get_current_user(auth: str = Header(...)):
-    if not auth.startswith("token "):
-        raise HTTPException(status_code=401, detail="Invalid Token Auth")
-    token = auth[len("token "):].strip()
-    id = verify_token(token)
-    if not id:
-        raise HTTPException(status_code=401, detail="Invalid or Expired Token")
-    user_record = user_db.get(id)
-    print(user_record)
-    if not user_record:
-        raise HTTPException(status_code=401, detail="User not found")
-    return user_record
-
+@app.post("/students/newsecret")
+def newSecret(s: Secret, req: Request):
+    token = req.headers.get("Authorization")
+    if token:
+        for i in studentsHash:
+            if studentsHash[i]["access_token"] == token:
+                students[i]["secret"] = s.secret
+                return s
+    return {"detail": "Access denied"}

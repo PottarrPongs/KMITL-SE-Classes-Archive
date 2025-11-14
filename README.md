@@ -9,6 +9,8 @@ Go to [this](https://github.com/dulapahv/ProblemSet/tree/main/KMITL_Courses) rep
 - [Pre-Year1](SE16/Pre-Year1/README.md)
 - [Year1](SE16/Year1/README.md)
 - [Year2](SE16/Year2/README.md)
+- [Every Lecture Slides](https://drive.google.com/drive/folders/1p8mE4q7q-KgQBgO7hmmQWvV0SlTImf3P?usp=sharing)
+(Please make a request to me in email to grant access) 
 
 
 ## For SE17 (ID: 68XXXXXX)
@@ -17,4 +19,6 @@ Go to [this](https://github.com/dulapahv/ProblemSet/tree/main/KMITL_Courses) rep
 
 
 ---
-Author: [Pottarrพงศ์](https://github.com/Pottarr)
+Author: [Pottarrพงศ์](https://github.com/Pottarr)  
+Contact:
+- Email: pottarrpongs@gmail.com
