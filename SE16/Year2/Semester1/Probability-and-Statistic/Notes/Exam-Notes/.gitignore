@@ -1,0 +1,7 @@
+**
+
+!.gitignore
+!**/*.tex
+!**/*.pdf
+!Final-Exam-Note/
+!Week15-Quiz-Note/

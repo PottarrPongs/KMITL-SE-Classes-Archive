@@ -1,0 +1,201 @@
+\documentclass[a4paper]{article}
+
+\usepackage[left=1cm,right=1cm,top=1.5cm,bottom=1.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+
+
+\begin{document}
+
+\begin{multicols}{2}
+
+\section*{Theepakorn Phayonrat 67011352}
+
+\section*{Derived Discrete RV}
+
+Assume
+
+$$Y = g(X) = aX + b$$
+
+\noindent $P_{Y} = \displaystyle\sum_{x:g(x) = y} P_{X}(x)$ \\
+
+\noindent $E[Y] = \displaystyle\sum_{x \in S_{X}} g(x) P_{X}(x)$ \\
+
+\noindent $E[aX + b] = a(E[X]) + b$ \\
+\noindent $Var[aX + b] = a^{2}Var[X]$ \\
+
+\section*{Continuous RV}
+
+\subsection*{PDF}
+
+$$f_{X} = \frac{d F_{X}(x)}{d x}$$
+
+\noindent $f_{X} \ge 0, \forall x$
+
+\noindent $\displaystyle\int_{-\infty}^{\infty} f_{X}(x) d x = 1$ \\
+
+\noindent $P[x_{1} < X \le x_{2}] = F_{X}(x_{2} - F_{X}(x_{1} = \displaystyle\int_{x_{1}}^{x_{2}} f_{X}(u) d u$ \\
+
+
+\subsection*{CDF}
+
+$$F_{X}(x) = \displaystyle\int_{-\infty}^{x}f_{X}(u) d u$$
+
+\subsection*{Expected Value}
+
+$$E[X] = \displaystyle\int_{-\infty}^{\infty}x f_{X}(x) d x$$
+\noindent $E[X - E[X]] = 0$ \\
+
+
+\section*{Other RVs}
+
+\subsection*{Variance and Standard Deviation}
+
+For $X$ is Bernoulli RV, then $Var[X] = p(1 - p)$ \\
+For $X$ is Geometric RV, then $Var[X] = \displaystyle\frac{(1 - p)}{p^{2}}$ \\
+For $X$ is Binomial RV, then $Var[X] = np(1 - p)$ \\
+For $X$ is Pascal RV, then $Var[X] = \displaystyle\frac{k(1 - p)}{p^{2}}$ \\
+For $X$ is Poisson RV, then $Var[X] = \alpha$ \\
+For $X$ is Uniform RV, then $Var[X] = \displaystyle\frac{(l - k)(l - k + 2)}{12}$ \\
+\noindent Else, then $Var[X] = E[X^{2}] - (E[X])^{2}$ \\
+\noindent Standard Deviation: $\sigma = \sqrt{Var[X]}$ \\
+
+\columnbreak
+
+\subsection*{Uniform}
+
+\[
+f_{X}(x) =
+\begin{cases}
+    \displaystyle\frac{1}{(b - a)} & a \le x < b \\
+    0 & otherwise \\
+\end{cases}
+\]
+\[
+F_{X}(x) =
+\begin{cases}
+    0 & x \le a \\
+    \displaystyle\frac{1}{(b - a)} & a < x \le b \\
+    1 & x > b \\
+\end{cases}
+\]
+
+$$E[X] = \displaystyle\frac{(b + a)}{2}$$
+$Var[X] = \displaystyle\frac{(b - a)^{2}}{12}$$
+
+\subsection*{Exponential}
+
+\[
+F_{X}(x) =
+\begin{cases}
+    1 - e^{-\lambda x} & x \ge 0 \\
+    0 & otherwise \\
+\end{cases}
+\]
+
+$$E[X] = \displaystyle\frac{1}{\lambda}$$
+$$Var[X] = \displaystyle\frac{1}{\lambda^{2}}$$
+
+\subsection*{Gaussian}
+
+$$\Phi(z) = \frac{1}{\sqrt{2\pi}}\displaystyle\int_{-\infty}^{z} e^{\frac{-u^{2}}{2}} d u $$
+$$\Phi(-z) = 1 - \Phi(z)$$
+
+\noindent $z = \frac{x - u}{\sigma}$ \\
+
+
+\end{multicols}
+
+\thispagestyle{empty}
+\newpage
+\section*{Theepakorn Phayonrat 67011352}
+
+\begin{multicols}{2}
+
+\section*{Discrete Pair of RVs}
+
+\subsection*{Joint CDF}
+
+\noindent $F_{X, Y}(x, y) = P[X \le x, Y \le y]$ \\
+\vspace{10px}
+\noindent $0 \le F_{X, Y}(x, y) \le 1$ \\
+\vspace{10px}
+\noindent $F_{X}(x) = F_{X, Y}(x, \infty) \rightarrow \textbf{ Marginal CDF of } X$ \\
+\vspace{10px}
+\noindent $F_{Y}(y) = F_{X, Y}(\infty, y) \rightarrow \textbf{ Marginal CDF of } Y$ \\
+\vspace{10px}
+\noindent $F_{X, Y}(x, -\infty) = F_{X, Y}(-\infty, y) = 0$ \\
+\vspace{10px}
+\noindent $x_{1} \le x_{2} \textbf{and} y_{1} \le y_{2} \rightarrow F_{X, Y}(x_{1}, y_{1}) \le F_{X, Y}(x_{2}, x_{2})$ \\
+\vspace{10px}
+\noindent $F_{X, Y}(\infty, \infty) = 1$ \\
+\vspace{10px}
+
+\subsection*{Joint PMF}
+
+$P_{X, Y}(x, y) = P[X = x, Y = y]$ \\
+
+$\displaystyle\sum_{x} \displaystyle\sum_{y} P_{X ,Y}(x, y) = 1$ \\
+
+
+\subsection*{Marginal PMF}
+
+$P_{Y}(y) = \displaystyle\sum_{x} P_{X, Y}(x, y)$ \\
+\vspace{10px}
+$P_{X}(x) = \displaystyle\sum_{y} P_{X, Y}(x, y)$ \\
+
+\columnbreak
+
+\section*{Continuous Pair of RVs}
+
+\subsection*{Joint CDF}
+
+\noindent $F_{X, Y}(x, y) = \displaystyle\int_{-\infty}^{x} \displaystyle\int_{-\infty}^{y} f_{X, Y}(u, v) d u d v$ \\
+\vspace{10px}
+
+\begin{flalign*}
+    P[x_{1} < X \le x_{2}, y_{1} < Y \le y_{2}] & = F_{X, Y}(x_{1}, y_{1}) - F_{X, Y}(x_{1}, y_{2}) && \\
+    &- F_{X, Y}(x_{2}, y_{1}) + F_{X, Y}(x_{2}, y_{2}) && \\
+\end{flalign*}
+
+\subsection*{Joint PDF}
+
+\noindent $f_{X, Y}(x, y) = \frac{\partial^{2} F_{X, Y}(x, y)}{\partial x \partial y}$
+\vspace{10px}
+\noindent $P_{X, Y}(x, y) = P[X = x, Y = y]$ \\
+\vspace{10px}
+\noindent $P[x < X \le x + d x, y < Y \le y + d y] = f_{X, Y}(x, y) d x d y$ \\
+\vspace{10px}
+\noindent $f_{X, Y}(x, y) \ge 0, \forall{(x, y)}$
+\vspace{10px}
+\noindent $\displaystyle\int_{-\infty}^{\infty}\displaystyle\int_{-\infty}^{\infty}f_{X ,Y}(x, y) d x d y= 1$ \\
+
+\subsection*{Marginal PDF}
+
+$f_{X}(x) = \displaystyle\int_{-\infty}^{\infty} f_{X, Y}(x, y) d y$ \\
+
+\noindent $f_{Y}(y) = \displaystyle\int_{-\infty}^{\infty} f_{X, Y}(x, y) d x$ \\
+
+\section*{Integration with Polar Coordination}
+
+$x = r \cos{\theta}$ and $y = r \sin{\theta}$
+
+\noindent Then substitute and do it as normal \\
+
+\end{multicols}
+
+\section*{Independent RVs}
+
+$$ r_{X, Y} = E[XY]$$
+$$ Cov[X,Y]= r_{X, Y} - E[X]E[Y]$$
+$$ Var[X + Y] = Var[X] + Var[Y] + 2 Cov[X, Y]$$
+$$ r_{X, Y} = E[XY]$$
+
+\subsection*{Discrete}
+$$r_{X, Y} = \displaystyle\sum_{x \in S_{X}}\sum_{y \in S_{Y}} g(x, y) P_{X, Y}(x, y)$$
+\subsection*{Continuous}
+$$r_{X, Y} = \displaystyle\int_{-\infty}^{\infty}{\int_{-\infty}^{\infty} g(x, y) f_{X, Y}(x, y) d x d y$$
+
+\thispagestyle{empty}
+\end{document}
