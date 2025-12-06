@@ -2,15 +2,16 @@
 
 This repository archives all of my classnotes, labs, past exams and more.
 
-## For SE15 or older (ID: 66XXXXXX or below)
+## For SE15 or earlier (ID: 66XXXXXX or below)
 Go to [this](https://github.com/dulapahv/ProblemSet/tree/main/KMITL_Courses) repository.
 
 ## For SE16 (ID: 67XXXXXX)
 - [Pre-Year1](SE16/Pre-Year1/README.md)
 - [Year1](SE16/Year1/README.md)
 - [Year2](SE16/Year2/README.md)
-- [Every Lecture Slides](https://drive.google.com/drive/folders/1p8mE4q7q-KgQBgO7hmmQWvV0SlTImf3P?usp=sharing)
-(Please make a request to me in email to grant access) 
+- [Every Lecture Slides](https://github.com/Pottarr/KMITL-SE-Classes-Materials/tree/main)
+<!-- - [Every Lecture Slides](https://drive.google.com/drive/folders/1p8mE4q7q-KgQBgO7hmmQWvV0SlTImf3P?usp=sharing) -->
+<!-- (Please make a request to me in email to grant access)  -->
 
 
 ## For SE17 (ID: 68XXXXXX)
