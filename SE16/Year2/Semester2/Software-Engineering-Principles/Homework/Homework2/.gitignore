@@ -1,0 +1,8 @@
+.venv/
+Latex/**/*.aux
+Latex/**/*.fdb_latexmk
+Latex/**/*.fls
+Latex/**/*.log
+Latex/**/*.synctex.gz
+Latex/**/_minted/
+Latex/**/_minted/**
