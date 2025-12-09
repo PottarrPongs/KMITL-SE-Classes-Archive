@@ -1,4 +1,11 @@
 # HW2_67011235_Paphavee.py
+
+
+
+# MainPage.py
+
+
+
 from PySide6.QtWidgets import *
 from PySide6.QtGui import *
 from PySide6.QtCore import *
