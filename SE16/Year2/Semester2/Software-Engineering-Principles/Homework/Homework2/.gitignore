@@ -1,4 +1,5 @@
 .venv/
+__pycache__/
 Latex/**/*.aux
 Latex/**/*.fdb_latexmk
 Latex/**/*.fls
