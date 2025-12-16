@@ -142,4 +142,6 @@ knowledge of DB system?
     - Answer: You can show table or cube or more.
 - What is an SQL Table in Relational DB theory?
     - Answer: It is a variable whose values should be a relation (AKA 
-    relational variable (relvar)
+    relational variable (relvar) where the relation which is the value
+    is the `Set of n-tuples which is true in the given Universe where
+    each tuple is a Cartesian product of n domains`.

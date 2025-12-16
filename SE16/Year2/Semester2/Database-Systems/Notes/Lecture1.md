@@ -20,7 +20,7 @@
 - Categorized by Logical VS Physical (It depends on who we are talking to too.)
     - Logical DB $\rightarrow$ The DB we work with normally, mostly
     summarized by the DBMS.
-    - Physical DB $\rightarrow$ The ...................
+    - Physical DB $\rightarrow$ The DB in the system.
 
 ## Why Table scan is faster than Index scan?
 
