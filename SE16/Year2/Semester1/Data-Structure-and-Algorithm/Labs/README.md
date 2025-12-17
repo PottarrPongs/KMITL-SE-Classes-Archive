@@ -14,7 +14,8 @@
 | 9 | [12/09/2025](Lab09/Lab09.md) |
 | 10a | [19/09/2025](Lab10a/Lab10a.md) |
 | 10b | [26/09/2025](Lab10b/Lab10b.md) |
-| 12a | [03/10/2025](Lab12a/Lab12a.md) |
+| 12a | [03/10/2025](Lab12ab/Lab12a.md) |
+| 12b | [10/10/2025](Lab12ab/Lab12b.md) |
 
 [^1]: Class Homework
 [^2]: Take Home Lab
