@@ -27,8 +27,7 @@ Network Interface Card (NIC)
     - 48 Bit number (the first 24 bits indicate the manufacturer, the
     last 24 bits are the unique number for each board/controller-chip
     assigned by the manufacturer)
-    - AKA MAC-Address (Media Access Control
-    Address)
+    - AKA MAC-Address (Media Access Control Address)
     - Can be compared to Physical Address
 - IP Address
     - 32 Bit number which represent to a logical connection
