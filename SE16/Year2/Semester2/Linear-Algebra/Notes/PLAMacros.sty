@@ -1,0 +1,76 @@
+\ProvidesPackage{PLAMacros}
+
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+\pgfplotsset{compat=1.18}
+
+\newcommand{\PLAMatrix}[2]{%
+\begin{#1matrix}
+#2
+\end{#1matrix}
+}
+
+\newcommand{\plotA}[5]{
+\begin{tikzpicture}
+\begin{axis}[
+    width=#1,
+    height=#2,
+    view={45}{35.264},
+    axis equal image,
+    axis lines=center,
+    box=off,
+    xmin=-#3, xmax=#3,
+    ymin=-#3, ymax=#3,
+    zmin=-#3, zmax=#3,
+    xlabel={$x$},
+    ylabel={$y$},
+    zlabel={$z$},
+    xtick distance=#4,
+    ytick distance=#4,
+    ztick distance=#4
+]
+#5
+\end{axis}
+\end{tikzpicture}
+}
+
+\newcommand{\plotV}[4]{
+\addplot3[->, thick, #1] coordinates {(0, 0, 0) (#2, #3, #4)};
+}
+
+\newcommand{\plotDV}[5]{
+\addplot3[->, thick, #1] coordinates {(0, 0, 0) (#2, #3, #4)}
+node[pos=1, anchor=west, black] {\scriptsize $#5(#2, #3, #4)$};
+}
+
+\newcommand{\plotPV}[4]{
+\addplot3[->, thick, #1]
+    coordinates {(0, 0, 0) (#2,#3,#4)};
+
+\addplot3[dashed, gray]
+    coordinates {(#2,#3,0) (#2,#3,#4)};
+
+\addplot3[dashed, gray]
+    coordinates {(#2,0,0) (#2,#3,0)};
+
+\addplot3[dashed, gray]
+    coordinates {(0,#3,0) (#2,#3,0)};
+}
+
+\newcommand{\plotDPV}[5]{
+\addplot3[->, thick, #1]
+    coordinates {(0, 0, 0) (#2,#3,#4)}
+    node[pos=1, anchor=west, black] {\scriptsize $#5(#2, #3, #4)$};
+
+\addplot3[dashed, gray]
+    coordinates {(#2,#3,0) (#2,#3,#4)};
+
+\addplot3[dashed, gray]
+    coordinates {(#2,0,0) (#2,#3,0)};
+
+\addplot3[dashed, gray]
+    coordinates {(0,#3,0) (#2,#3,0)};
+}
