@@ -111,7 +111,7 @@ Answer:
 #### Referential Integrity (Cont. on Foreign Key)
 
 A Foreign Key is a Non-Key attribute of a relation which is the Primary
-Key of other relations.
+Key of other relations or the same relation.
 
 Example in `EMP` (Employyes) Table and `DEPT` (Department) Table:  
 
@@ -145,7 +145,7 @@ CREATE TABLE EMP (D# ... D# ...)
 
 ```
 
-From this query:  
+From this query:
 - We no need to say `NOT NULL` in D# since it already is a Primary Key
 - `UPDATE [ RESTRICTED ]` means every update in the `D#` will be rejected.
 - `UPDATE [ CASCADES ]` means when you update `D#`, e.g. `D1` to `D30`,
