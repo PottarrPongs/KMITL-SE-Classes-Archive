@@ -1,0 +1,68 @@
+\documentclass[12pt]{report} % You can use 'article' or 'book' class as well
+
+\usepackage[left=1cm,right=1cm,top=1.5cm,bottom=1.5cm]{geometry}
+\usepackage{graphicx} % For including images
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+	\centering
+	\vspace*{1cm} % Adjusts vertical space for the image
+	% Insert your image (use the actual path and filename of your image)
+	\includegraphics[width=0.3\textwidth]{./images/KMITL Logo.png} % Adjust width as needed
+
+	\vspace{1cm} % Vertical space after the image
+    {\LARGE \textbf{Lecture Notes}} \\[0.5cm] % Title
+	\vspace{0.5cm}
+	{\large \textbf{Seminar in Software Engineering}} \\[0.5cm]
+    {\large \textbf{Software Engineering Program,}} \\[0.5cm]
+	{\large \textbf{Department of Computer Engineering,}} \\[0.5cm]
+	{\large \textbf{School of Engineering, KMITL}} \\[1cm]
+	{\Large 67011352 Theepakorn Phayonrat}[0.5cm] % Authors (Use \\ the separate authors)
+\end{titlepage}
+
+\tableofcontents
+\chapter{Lecture 1: Intelligent Agent}
+
+\section{What are agents in AI?}
+
+An agent is anything that can be viewed as \textbf{perceiving} its environment through \textbf{sensors} and \textbf{acting} upon that environment through \textbf{actuators}
+
+Example of agents in human body: eyes, ears, nose, tongue, skin
+
+Agent can have actions, e.g. Vacuum cleaner $\rightarrow$ Agent: Detect dirty space, Action: Clean
+
+Type of Agents:
+\begin{itemize}
+    \item Rule based Agent
+    \item Logic based Agent
+\end{itemize}
+
+\subsection{An Agent as a Logical System}
+
+Any logical system consists of a knowledge base \& inference engine.
+
+Example of Intelligent Agents in real world application:
+\begin{itemize}
+    \item Traffic-Light Control
+    \item Smart Meter
+    \item Smart Home
+    \item Smart Factory (SCADA)
+\end{itemize}
+
+\section{Agents for Traffic-Light Control}
+
+Rule 1: IF (current\_state(P) \land state\_counter(N) \land N $\le$ 0)
+
+\section{A Smart Home as an Intelligent Agent}
+
+\section{SCADA as an Generic Intelligent Agent}
+
+\section{asdf}
+
+\end{document}
