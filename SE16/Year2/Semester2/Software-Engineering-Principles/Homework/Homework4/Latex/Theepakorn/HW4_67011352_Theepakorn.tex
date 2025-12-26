@@ -15,15 +15,14 @@
 	\vspace*{1cm}
 	\includegraphics[width=0.3\textwidth]{../../../images/KMITL Logo.png} \\
 	\vspace*{1cm}
-	{\LARGE \textbf{Homework 2}} \\[0.5cm]
+	{\LARGE \textbf{Homework 4}} \\[0.5cm]
 	\vspace*{0.5cm}
 	{\large \textbf{Software Engineering Principle}} \\[0.5cm]
     {\large \textbf{Software Engineering Program,}} \\[0.5cm]
 	{\large \textbf{Department of Computer Engineering,}} \\[0.5cm]
 	{\large \textbf{School of Engineering, KMITL}} \\[1cm]
-    {\Large 67011287 Ramida Laphasphokin} \\[0.5cm]
+    {\Large 67011352 Theepakorn Phayonrat} \\[0.5cm]
 \end{titlepage}
-
 
 \chapter*{Features}
 
@@ -75,31 +74,46 @@ Implementation Approach:
 
 \section*{Page included in this homework}
 \begin{itemize}
-    \item \textbf{Design Page}: Page to brainstorm the program architecture
-        and to adjust tasks duration or deadline.
-    \item \textbf{User Settings Page}: Page to edit current user settings.
+    \item \textbf{Task Assignment Page}: Page to edit \texttt{TODO} for
+        task assignments with markdown supported for better view. User
+        can choose whether to edit in the manual mode or external text
+        editor and save file because it can also fetch from real
+        \texttt{.md} files in the real program.
 \end{itemize}
 
 \newpage
 
 \section*{Code:}
 
-\subsection*{DesignPage.py}
+\subsection*{TaskAssignmentPageCode.py}
 
-\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{py}{../../DesignPage.py}
+\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{py}{../../TaskAssignmentPageCode.py}
 
-\subsection*{UserSettingsPage.py}
+\newpage
 
-\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{py}{../../UserSettingsPage.py}
+\subsection*{TaskAssignmentPageUI.py}
+
+\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{py}{../../TaskAssignmentPageUI.py}
+
+\subsection*{Image:}
+
+\texttt{logo.png} \\
+\includegraphics[width=0.2\textwidth]{../images/logo.png} \\
 
 \newpage
 
 \section*{Output:}
-\subsection*{Design Page}
+\subsection*{Task Assignment Page}
+\includegraphics[width=\textwidth]{../images/TaskAssignmentPage1.png} \\
 \\
-\includegraphics[width=\textwidth]{../images/DesignPageInteractionDiagram.png} \\
+\includegraphics[width=\textwidth]{../images/TaskAssignmentPage2.png} \\
 \\
-\subsection*{User Settings Page}
-\includegraphics[width=\textwidth]{../images/UserSettingsPage.png} \\
+\includegraphics[width=\textwidth]{../images/TaskAssignmentPage3.png} \\
+
+\section*{External Plugin}
+\begin{itemize}
+    \item \texttt{pip install markdown}
+\end{itemize}
+
 
 \end{document}
