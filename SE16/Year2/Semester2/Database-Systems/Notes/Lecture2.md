@@ -155,7 +155,7 @@ architecture
     1. Table Structure without the data
     2. Data Rows excluding the structures ...
     3. Relationship between Tables
-    4. Relationship betweem Entities
+    4. Relationship between Entities
     - Why?
         - Answer: From the Term of Relation in Mathematics: `A relation
         in a subset of the Cartesian product of Domains`

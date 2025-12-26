@@ -2,9 +2,11 @@
 
 \usepackage[left=1cm,right=1cm,top=1.5cm,bottom=1.5cm]{geometry}
 \usepackage{graphicx} % For including images
-\usepackage{amsmath}
-\usepackage{amssymb}
+% \usepackage{amsmath}
+% \usepackage{amssymb}
 \usepackage{multicol}
+
+\usepackage{PLAMacros}
 
 \begin{document}
 
@@ -56,5 +58,23 @@ $$A = \begin{bmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{bmatrix}$$
 $A$ is a 3 by 2 \textbf{matrix}: $m = 3$ rows and $n = 2$ columns
 
 Suppose $A$ is a system which input $x$ and output $b$
+
+
+\chapter{Lecture 3: Elimination}
+
+$\PLAMatrix{b}{
+1 & 2 & 3 \\
+4 & 5 & 6
+}$
+\[
+\plotA{25cm}{25cm}{20}{5}{
+    % \addplot3[->, thick, purple] coordinates {(0, 0, 0) (1, 2, 3)};
+    % \plotxyxV{red}{(-2, 1, 10)}
+    % \plotV{red}{2}{-11}{4}
+    \plotDPV{blue}{-7}{10}{5}{V_{1}}
+    \plotDPV{green}{11}{-8}{3}{V_{2}}
+    \plotDPV{cyan}{-1}{-5}{-9}{V_{3}}
+    \plotDPV{red}{1}{5}{7}{V_{0}}
+}
 
 \end{document}
