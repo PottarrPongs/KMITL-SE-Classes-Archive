@@ -1,0 +1,119 @@
+\documentclass[12pt]{report}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{minted}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+	\includegraphics[width=0.3\textwidth]{../../../images/KMITL Logo.png} \\
+	\vspace*{1cm}
+	{\LARGE \textbf{Homework 4}} \\[0.5cm]
+	\vspace*{0.5cm}
+	{\large \textbf{Software Engineering Principle}} \\[0.5cm]
+    {\large \textbf{Software Engineering Program,}} \\[0.5cm]
+	{\large \textbf{Department of Computer Engineering,}} \\[0.5cm]
+	{\large \textbf{School of Engineering, KMITL}} \\[1cm]
+    {\Large 67011352 Theepakorn Phayonrat} \\[0.5cm]
+\end{titlepage}
+
+\chapter*{Features}
+
+\section*{Gantt Chart}
+\noindent Used for planning project plan and tasks duration or deadline.
+
+\section*{Class Diagram}
+\noindent Used for designing classes in the projects.
+
+\section*{Interaction Diagram}
+\noindent Used for designing how classes interact each others in the projects.
+
+\section*{Markdown Renderer for the task assignment page}
+\noindent How it works:
+\begin{itemize}
+    \item As mentioned earlier, we can use markdown to express
+        the task, $\therefore$ we need a markdown renderer.
+\end{itemize}
+\noindent Implementation Approach:
+\begin{itemize}
+    \item Use QEngineWebView Module in PyQt.
+\end{itemize}
+
+\newpage
+
+
+\section*{VS-Code Extension (OPTIONAL)}
+\texttt{TODO} extension in VS-Code with better description for
+the task and with team member(s) assigned to that task. \\
+How it works:
+\begin{itemize}
+    \item If you have comment with \texttt{TODO} in the front,
+        you can add description of the task in a different
+        entry and also in a markdown file.
+    \item If you want to add a person in charge for that task
+        (OPTIONAL), you can use \texttt{@TEMP}, where
+        \texttt{TEMP} can be either role or team member names.
+    \item After saved, you can access the \texttt{TODO}
+        description as you hover and click to inspect task in
+        the comment.
+\end{itemize}
+Implementation Approach:
+\begin{itemize}
+    \item Scan through the file looking for comment with
+        \texttt{TODO} in the front then keep the entry into the DB.
+    \item We can edit the \texttt{TODO} description inside a
+        external markdown file.
+\end{itemize}
+
+\section*{Page included in this homework}
+\begin{itemize}
+    \item \textbf{Task Assignment Page}: Page to edit \texttt{TODO} for
+        task assignments with markdown supported for better view. User
+        can choose whether to edit in the manual mode or external text
+        editor and save file because it can also fetch from real
+        \texttt{.md} files in the real program.
+\end{itemize}
+
+\newpage
+
+\section*{Code:}
+
+\subsection*{TaskAssignmentPageCode.py}
+
+\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{py}{../../TaskAssignmentPageCode.py}
+
+\newpage
+
+\subsection*{TaskAssignmentPageUI.py}
+
+\inputminted[fontsize=\small, breaklines, breakanywhere, breakindent=1em]{py}{../../TaskAssignmentPageUI.py}
+
+\subsection*{Image:}
+
+\texttt{logo.png} \\
+\includegraphics[width=0.2\textwidth]{../images/logo.png} \\
+
+\newpage
+
+\section*{Output:}
+\subsection*{Task Assignment Page}
+\includegraphics[width=\textwidth]{../images/TaskAssignmentPage1.png} \\
+\\
+\includegraphics[width=\textwidth]{../images/TaskAssignmentPage2.png} \\
+\\
+\includegraphics[width=\textwidth]{../images/TaskAssignmentPage3.png} \\
+
+\section*{External Plugin}
+\begin{itemize}
+    \item \texttt{pip install markdown}
+\end{itemize}
+
+
+\end{document}

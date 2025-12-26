@@ -1,0 +1,671 @@
+# HW4_67011235_Paphavee.py
+
+
+
+# ---------- MainPage ----------
+
+
+
+# MainPageUI.py
+
+
+
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'main.ui'
+##
+## Created by: Qt User Interface Compiler version 6.10.1
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QLineEdit,
+    QPushButton, QSizePolicy, QWidget)
+
+class Ui_Form(object):
+    def setupUi(self, Form):
+        if not Form.objectName():
+            Form.setObjectName(u"Form")
+        Form.resize(961, 582)
+        self.widget = QWidget(Form)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(0, 60, 231, 521))
+        self.projectFrame = QFrame(self.widget)
+        self.projectFrame.setObjectName(u"projectFrame")
+        self.projectFrame.setGeometry(QRect(0, 0, 231, 271))
+        self.projectFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.projectFrame.setFrameShadow(QFrame.Shadow.Raised)
+        self.project1 = QPushButton(self.projectFrame)
+        self.project1.setObjectName(u"project1")
+        self.project1.setGeometry(QRect(10, 60, 211, 32))
+        self.project2 = QPushButton(self.projectFrame)
+        self.project2.setObjectName(u"project2")
+        self.project2.setGeometry(QRect(10, 90, 211, 32))
+        self.project3 = QPushButton(self.projectFrame)
+        self.project3.setObjectName(u"project3")
+        self.project3.setGeometry(QRect(10, 120, 211, 32))
+        self.project4 = QPushButton(self.projectFrame)
+        self.project4.setObjectName(u"project4")
+        self.project4.setGeometry(QRect(10, 150, 211, 32))
+        self.projectTitleFrame = QFrame(self.projectFrame)
+        self.projectTitleFrame.setObjectName(u"projectTitleFrame")
+        self.projectTitleFrame.setGeometry(QRect(0, 0, 231, 51))
+        self.projectTitleFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.projectTitleFrame.setFrameShadow(QFrame.Shadow.Raised)
+        self.projectTitleLabel = QLabel(self.projectTitleFrame)
+        self.projectTitleLabel.setObjectName(u"projectTitleLabel")
+        self.projectTitleLabel.setGeometry(QRect(80, 10, 71, 31))
+        font = QFont()
+        font.setFamilies([u"Arial"])
+        font.setPointSize(18)
+        font.setBold(True)
+        self.projectTitleLabel.setFont(font)
+        self.project5 = QPushButton(self.projectFrame)
+        self.project5.setObjectName(u"project5")
+        self.project5.setGeometry(QRect(10, 180, 211, 32))
+        self.project6 = QPushButton(self.projectFrame)
+        self.project6.setObjectName(u"project6")
+        self.project6.setGeometry(QRect(10, 210, 211, 32))
+        self.project7 = QPushButton(self.projectFrame)
+        self.project7.setObjectName(u"project7")
+        self.project7.setGeometry(QRect(10, 240, 211, 32))
+        self.notiFrame = QFrame(self.widget)
+        self.notiFrame.setObjectName(u"notiFrame")
+        self.notiFrame.setGeometry(QRect(0, 270, 231, 251))
+        self.notiFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.notiFrame.setFrameShadow(QFrame.Shadow.Raised)
+        self.notiTitleFrame = QFrame(self.notiFrame)
+        self.notiTitleFrame.setObjectName(u"notiTitleFrame")
+        self.notiTitleFrame.setGeometry(QRect(0, 0, 231, 51))
+        self.notiTitleFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.notiTitleFrame.setFrameShadow(QFrame.Shadow.Raised)
+        self.notiTitleLabel = QLabel(self.notiTitleFrame)
+        self.notiTitleLabel.setObjectName(u"notiTitleLabel")
+        self.notiTitleLabel.setGeometry(QRect(70, 10, 101, 31))
+        self.notiTitleLabel.setFont(font)
+        self.projObjInput_2 = QLineEdit(self.notiFrame)
+        self.projObjInput_2.setObjectName(u"projObjInput_2")
+        self.projObjInput_2.setGeometry(QRect(10, 60, 211, 181))
+        self.widget_2 = QWidget(Form)
+        self.widget_2.setObjectName(u"widget_2")
+        self.widget_2.setGeometry(QRect(230, 60, 241, 521))
+        self.projCharterFrame = QFrame(self.widget_2)
+        self.projCharterFrame.setObjectName(u"projCharterFrame")
+        self.projCharterFrame.setGeometry(QRect(0, 0, 241, 521))
+        self.projCharterFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.projCharterFrame.setFrameShadow(QFrame.Shadow.Raised)
+        self.projObjLabel = QLabel(self.projCharterFrame)
+        self.projObjLabel.setObjectName(u"projObjLabel")
+        self.projObjLabel.setGeometry(QRect(10, 60, 211, 31))
+        font1 = QFont()
+        font1.setFamilies([u"Arial"])
+        font1.setPointSize(14)
+        font1.setBold(True)
+        self.projObjLabel.setFont(font1)
+        self.projStructLabel = QLabel(self.projCharterFrame)
+        self.projStructLabel.setObjectName(u"projStructLabel")
+        self.projStructLabel.setGeometry(QRect(10, 140, 211, 31))
+        self.projStructLabel.setFont(font1)
+        self.projMemLabel = QLabel(self.projCharterFrame)
+        self.projMemLabel.setObjectName(u"projMemLabel")
+        self.projMemLabel.setGeometry(QRect(10, 220, 211, 31))
+        self.projMemLabel.setFont(font1)
+        self.projDurLabel = QLabel(self.projCharterFrame)
+        self.projDurLabel.setObjectName(u"projDurLabel")
+        self.projDurLabel.setGeometry(QRect(10, 300, 211, 31))
+        self.projDurLabel.setFont(font1)
+        self.projDeadlineLabel = QLabel(self.projCharterFrame)
+        self.projDeadlineLabel.setObjectName(u"projDeadlineLabel")
+        self.projDeadlineLabel.setGeometry(QRect(10, 380, 211, 31))
+        self.projDeadlineLabel.setFont(font1)
+        self.projCharterTitleFrame = QFrame(self.projCharterFrame)
+        self.projCharterTitleFrame.setObjectName(u"projCharterTitleFrame")
+        self.projCharterTitleFrame.setGeometry(QRect(0, 0, 241, 51))
+        self.projCharterTitleFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.projCharterTitleFrame.setFrameShadow(QFrame.Shadow.Raised)
+        self.projCharterTitleLabel = QLabel(self.projCharterTitleFrame)
+        self.projCharterTitleLabel.setObjectName(u"projCharterTitleLabel")
+        self.projCharterTitleLabel.setGeometry(QRect(50, 10, 131, 31))
+        self.projCharterTitleLabel.setFont(font)
+        self.projObjInput = QLineEdit(self.projCharterFrame)
+        self.projObjInput.setObjectName(u"projObjInput")
+        self.projObjInput.setGeometry(QRect(10, 90, 221, 51))
+        self.projStructInput = QLineEdit(self.projCharterFrame)
+        self.projStructInput.setObjectName(u"projStructInput")
+        self.projStructInput.setGeometry(QRect(10, 170, 221, 51))
+        self.projMemInput = QLineEdit(self.projCharterFrame)
+        self.projMemInput.setObjectName(u"projMemInput")
+        self.projMemInput.setGeometry(QRect(10, 250, 221, 51))
+        self.projDurInput = QLineEdit(self.projCharterFrame)
+        self.projDurInput.setObjectName(u"projDurInput")
+        self.projDurInput.setGeometry(QRect(10, 330, 221, 51))
+        self.projDeadlineInput = QLineEdit(self.projCharterFrame)
+        self.projDeadlineInput.setObjectName(u"projDeadlineInput")
+        self.projDeadlineInput.setGeometry(QRect(10, 410, 221, 51))
+        self.saveProjCharterBtn = QPushButton(self.projCharterFrame)
+        self.saveProjCharterBtn.setObjectName(u"saveProjCharterBtn")
+        self.saveProjCharterBtn.setGeometry(QRect(140, 470, 91, 41))
+        self.widget_3 = QWidget(Form)
+        self.widget_3.setObjectName(u"widget_3")
+        self.widget_3.setGeometry(QRect(470, 60, 491, 521))
+        self.assignFrame = QFrame(self.widget_3)
+        self.assignFrame.setObjectName(u"assignFrame")
+        self.assignFrame.setGeometry(QRect(0, 0, 491, 521))
+        self.assignFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.assignFrame.setFrameShadow(QFrame.Shadow.Raised)
+        self.assignTitleFrame = QFrame(self.assignFrame)
+        self.assignTitleFrame.setObjectName(u"assignTitleFrame")
+        self.assignTitleFrame.setGeometry(QRect(0, 0, 491, 51))
+        self.assignTitleFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.assignTitleFrame.setFrameShadow(QFrame.Shadow.Raised)
+        self.assignTitleLabel = QLabel(self.assignTitleFrame)
+        self.assignTitleLabel.setObjectName(u"assignTitleLabel")
+        self.assignTitleLabel.setGeometry(QRect(190, 10, 111, 31))
+        self.assignTitleLabel.setFont(font)
+        self.task1Label = QLabel(self.assignFrame)
+        self.task1Label.setObjectName(u"task1Label")
+        self.task1Label.setGeometry(QRect(10, 60, 211, 31))
+        font2 = QFont()
+        font2.setFamilies([u"Arial"])
+        font2.setPointSize(14)
+        font2.setBold(False)
+        self.task1Label.setFont(font2)
+        self.task1Input = QLineEdit(self.assignFrame)
+        self.task1Input.setObjectName(u"task1Input")
+        self.task1Input.setGeometry(QRect(10, 100, 121, 31))
+        self.by1Label = QLabel(self.assignFrame)
+        self.by1Label.setObjectName(u"by1Label")
+        self.by1Label.setGeometry(QRect(140, 106, 21, 20))
+        font3 = QFont()
+        font3.setFamilies([u"Arial"])
+        font3.setPointSize(14)
+        self.by1Label.setFont(font3)
+        self.name1Input = QLineEdit(self.assignFrame)
+        self.name1Input.setObjectName(u"name1Input")
+        self.name1Input.setGeometry(QRect(170, 100, 121, 31))
+        self.status1Label = QLabel(self.assignFrame)
+        self.status1Label.setObjectName(u"status1Label")
+        self.status1Label.setGeometry(QRect(300, 99, 51, 31))
+        self.status1Label.setFont(font3)
+        self.status1Input = QLineEdit(self.assignFrame)
+        self.status1Input.setObjectName(u"status1Input")
+        self.status1Input.setGeometry(QRect(350, 100, 51, 31))
+        self.saveTask1Btn = QPushButton(self.assignFrame)
+        self.saveTask1Btn.setObjectName(u"saveTask1Btn")
+        self.saveTask1Btn.setGeometry(QRect(410, 100, 61, 32))
+        self.task2Label = QLabel(self.assignFrame)
+        self.task2Label.setObjectName(u"task2Label")
+        self.task2Label.setGeometry(QRect(10, 151, 211, 31))
+        self.task2Label.setFont(font2)
+        self.task2Input = QLineEdit(self.assignFrame)
+        self.task2Input.setObjectName(u"task2Input")
+        self.task2Input.setGeometry(QRect(10, 191, 121, 31))
+        self.by2Label = QLabel(self.assignFrame)
+        self.by2Label.setObjectName(u"by2Label")
+        self.by2Label.setGeometry(QRect(140, 197, 21, 20))
+        self.by2Label.setFont(font3)
+        self.name2Input = QLineEdit(self.assignFrame)
+        self.name2Input.setObjectName(u"name2Input")
+        self.name2Input.setGeometry(QRect(170, 191, 121, 31))
+        self.status2Input = QLineEdit(self.assignFrame)
+        self.status2Input.setObjectName(u"status2Input")
+        self.status2Input.setGeometry(QRect(350, 191, 51, 31))
+        self.saveTask2Btn = QPushButton(self.assignFrame)
+        self.saveTask2Btn.setObjectName(u"saveTask2Btn")
+        self.saveTask2Btn.setGeometry(QRect(410, 191, 61, 32))
+        self.status2Label = QLabel(self.assignFrame)
+        self.status2Label.setObjectName(u"status2Label")
+        self.status2Label.setGeometry(QRect(300, 190, 51, 31))
+        self.status2Label.setFont(font3)
+        self.task3Label = QLabel(self.assignFrame)
+        self.task3Label.setObjectName(u"task3Label")
+        self.task3Label.setGeometry(QRect(10, 250, 211, 31))
+        self.task3Label.setFont(font2)
+        self.task3Input = QLineEdit(self.assignFrame)
+        self.task3Input.setObjectName(u"task3Input")
+        self.task3Input.setGeometry(QRect(10, 290, 121, 31))
+        self.task4Input = QLineEdit(self.assignFrame)
+        self.task4Input.setObjectName(u"task4Input")
+        self.task4Input.setGeometry(QRect(10, 381, 121, 31))
+        self.status4Input = QLineEdit(self.assignFrame)
+        self.status4Input.setObjectName(u"status4Input")
+        self.status4Input.setGeometry(QRect(350, 381, 51, 31))
+        self.name4Input = QLineEdit(self.assignFrame)
+        self.name4Input.setObjectName(u"name4Input")
+        self.name4Input.setGeometry(QRect(170, 381, 121, 31))
+        self.by3Label = QLabel(self.assignFrame)
+        self.by3Label.setObjectName(u"by3Label")
+        self.by3Label.setGeometry(QRect(140, 296, 21, 20))
+        self.by3Label.setFont(font3)
+        self.name3Input = QLineEdit(self.assignFrame)
+        self.name3Input.setObjectName(u"name3Input")
+        self.name3Input.setGeometry(QRect(170, 290, 121, 31))
+        self.saveTask4Btn = QPushButton(self.assignFrame)
+        self.saveTask4Btn.setObjectName(u"saveTask4Btn")
+        self.saveTask4Btn.setGeometry(QRect(410, 381, 61, 32))
+        self.status3Input = QLineEdit(self.assignFrame)
+        self.status3Input.setObjectName(u"status3Input")
+        self.status3Input.setGeometry(QRect(350, 290, 51, 31))
+        self.saveTask3Btn = QPushButton(self.assignFrame)
+        self.saveTask3Btn.setObjectName(u"saveTask3Btn")
+        self.saveTask3Btn.setGeometry(QRect(410, 290, 61, 32))
+        self.task4Label = QLabel(self.assignFrame)
+        self.task4Label.setObjectName(u"task4Label")
+        self.task4Label.setGeometry(QRect(10, 341, 211, 31))
+        self.task4Label.setFont(font2)
+        self.by4Label = QLabel(self.assignFrame)
+        self.by4Label.setObjectName(u"by4Label")
+        self.by4Label.setGeometry(QRect(140, 387, 21, 20))
+        self.by4Label.setFont(font3)
+        self.status3Label = QLabel(self.assignFrame)
+        self.status3Label.setObjectName(u"status3Label")
+        self.status3Label.setGeometry(QRect(300, 289, 51, 31))
+        self.status3Label.setFont(font3)
+        self.status4Label = QLabel(self.assignFrame)
+        self.status4Label.setObjectName(u"status4Label")
+        self.status4Label.setGeometry(QRect(300, 380, 51, 31))
+        self.status4Label.setFont(font3)
+        self.task5Input = QLineEdit(self.assignFrame)
+        self.task5Input.setObjectName(u"task5Input")
+        self.task5Input.setGeometry(QRect(10, 480, 121, 31))
+        self.status5Label = QLabel(self.assignFrame)
+        self.status5Label.setObjectName(u"status5Label")
+        self.status5Label.setGeometry(QRect(300, 479, 51, 31))
+        self.status5Label.setFont(font3)
+        self.task5Label = QLabel(self.assignFrame)
+        self.task5Label.setObjectName(u"task5Label")
+        self.task5Label.setGeometry(QRect(10, 440, 211, 31))
+        self.task5Label.setFont(font2)
+        self.name5Input = QLineEdit(self.assignFrame)
+        self.name5Input.setObjectName(u"name5Input")
+        self.name5Input.setGeometry(QRect(170, 480, 121, 31))
+        self.saveTask5Btn = QPushButton(self.assignFrame)
+        self.saveTask5Btn.setObjectName(u"saveTask5Btn")
+        self.saveTask5Btn.setGeometry(QRect(410, 480, 61, 32))
+        self.by5Label = QLabel(self.assignFrame)
+        self.by5Label.setObjectName(u"by5Label")
+        self.by5Label.setGeometry(QRect(140, 486, 21, 20))
+        self.by5Label.setFont(font3)
+        self.status5Input = QLineEdit(self.assignFrame)
+        self.status5Input.setObjectName(u"status5Input")
+        self.status5Input.setGeometry(QRect(350, 480, 51, 31))
+        self.widget_4 = QWidget(Form)
+        self.widget_4.setObjectName(u"widget_4")
+        self.widget_4.setGeometry(QRect(0, 10, 961, 51))
+        self.headerFrame = QFrame(self.widget_4)
+        self.headerFrame.setObjectName(u"headerFrame")
+        self.headerFrame.setGeometry(QRect(0, 0, 961, 51))
+        self.headerFrame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.headerFrame.setFrameShadow(QFrame.Shadow.Raised)
+        self.logo = QLabel(self.headerFrame)
+        self.logo.setObjectName(u"logo")
+        self.logo.setGeometry(QRect(0, 0, 151, 51))
+        self.curProj = QLabel(self.headerFrame)
+        self.curProj.setObjectName(u"curProj")
+        self.curProj.setGeometry(QRect(230, 0, 241, 51))
+        font4 = QFont()
+        font4.setFamilies([u"Arial"])
+        font4.setPointSize(18)
+        self.curProj.setFont(font4)
+        self.userPic = QLabel(self.headerFrame)
+        self.userPic.setObjectName(u"userPic")
+        self.userPic.setGeometry(QRect(910, 0, 51, 51))
+        self.userLabel = QLabel(self.headerFrame)
+        self.userLabel.setObjectName(u"userLabel")
+        self.userLabel.setGeometry(QRect(810, 0, 91, 51))
+        self.userLabel.setFont(font4)
+        self.curMem = QLabel(self.headerFrame)
+        self.curMem.setObjectName(u"curMem")
+        self.curMem.setGeometry(QRect(470, 0, 201, 51))
+        self.curMem.setFont(font4)
+
+        self.retranslateUi(Form)
+
+        QMetaObject.connectSlotsByName(Form)
+    # setupUi
+
+    def retranslateUi(self, Form):
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        self.project1.setText(QCoreApplication.translate("Form", u"Project 1", None))
+        self.project2.setText(QCoreApplication.translate("Form", u"Project 2", None))
+        self.project3.setText(QCoreApplication.translate("Form", u"Project 3", None))
+        self.project4.setText(QCoreApplication.translate("Form", u"Project 4", None))
+        self.projectTitleLabel.setText(QCoreApplication.translate("Form", u"Projects", None))
+        self.project5.setText(QCoreApplication.translate("Form", u"Project 5", None))
+        self.project6.setText(QCoreApplication.translate("Form", u"Project 6", None))
+        self.project7.setText(QCoreApplication.translate("Form", u"Project 7", None))
+        self.notiTitleLabel.setText(QCoreApplication.translate("Form", u"Notification", None))
+        self.projObjInput_2.setText("")
+        self.projObjLabel.setText(QCoreApplication.translate("Form", u"Project Objective", None))
+        self.projStructLabel.setText(QCoreApplication.translate("Form", u"Project Structure", None))
+        self.projMemLabel.setText(QCoreApplication.translate("Form", u"Project Member", None))
+        self.projDurLabel.setText(QCoreApplication.translate("Form", u"Project Duration", None))
+        self.projDeadlineLabel.setText(QCoreApplication.translate("Form", u"Project Deadline", None))
+        self.projCharterTitleLabel.setText(QCoreApplication.translate("Form", u"Project Charter", None))
+        self.saveProjCharterBtn.setText(QCoreApplication.translate("Form", u"Save", None))
+        self.assignTitleLabel.setText(QCoreApplication.translate("Form", u"Assignment", None))
+        self.task1Label.setText(QCoreApplication.translate("Form", u"Task 1", None))
+        self.by1Label.setText(QCoreApplication.translate("Form", u"By:", None))
+        self.status1Label.setText(QCoreApplication.translate("Form", u"Status:", None))
+        self.saveTask1Btn.setText(QCoreApplication.translate("Form", u"Save", None))
+        self.task2Label.setText(QCoreApplication.translate("Form", u"Task 2", None))
+        self.by2Label.setText(QCoreApplication.translate("Form", u"By:", None))
+        self.saveTask2Btn.setText(QCoreApplication.translate("Form", u"Save", None))
+        self.status2Label.setText(QCoreApplication.translate("Form", u"Status:", None))
+        self.task3Label.setText(QCoreApplication.translate("Form", u"Task 3", None))
+        self.by3Label.setText(QCoreApplication.translate("Form", u"By:", None))
+        self.saveTask4Btn.setText(QCoreApplication.translate("Form", u"Save", None))
+        self.saveTask3Btn.setText(QCoreApplication.translate("Form", u"Save", None))
+        self.task4Label.setText(QCoreApplication.translate("Form", u"Task 4", None))
+        self.by4Label.setText(QCoreApplication.translate("Form", u"By:", None))
+        self.status3Label.setText(QCoreApplication.translate("Form", u"Status:", None))
+        self.status4Label.setText(QCoreApplication.translate("Form", u"Status:", None))
+        self.status5Label.setText(QCoreApplication.translate("Form", u"Status:", None))
+        self.task5Label.setText(QCoreApplication.translate("Form", u"Task 5", None))
+        self.saveTask5Btn.setText(QCoreApplication.translate("Form", u"Save", None))
+        self.by5Label.setText(QCoreApplication.translate("Form", u"By:", None))
+        self.logo.setText("")
+        self.curProj.setText(QCoreApplication.translate("Form", u"Current Project:", None))
+        self.userPic.setText("")
+        self.userLabel.setText(QCoreApplication.translate("Form", u"Username", None))
+        self.curMem.setText("")
+    # retranslateUi
+
+
+
+# MainPageCode.py
+
+
+
+import sys
+from PySide6.QtWidgets import *
+from PySide6.QtCore import *
+from PySide6.QtGui import *
+from PySide6.QtMultimedia import QSoundEffect
+from main import Ui_Form
+
+white = "white"
+lightGray = "#f4f4f4"
+yellow = "#ffd77f"
+blue = "#32a5da"
+darkBlue = "#158bc1"
+
+
+class ClickableLabel(QLabel):
+    clicked = Signal()
+
+    def mousePressEvent(self, event):
+        if event.button() == Qt.LeftButton:
+            self.clicked.emit()
+        super().mousePressEvent(event)
+
+
+class mainPage(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self, None)
+        self.ui = Ui_Form()
+        self.ui.setupUi(self)
+
+        oldLogo = self.ui.logo
+        self.ui.logo = ClickableLabel(oldLogo.parent())
+        self.ui.logo.setObjectName(oldLogo.objectName())
+        self.ui.logo.setGeometry(oldLogo.geometry())
+        self.ui.logo.setAlignment(oldLogo.alignment())
+        self.ui.logo.setScaledContents(oldLogo.hasScaledContents())
+        oldLogo.deleteLater()
+
+        self.setStyleSheet(f"""
+            QMainWindow {{ 
+                background-color: {lightGray}; 
+            }}
+        """)
+
+        self.ui.headerFrame.setStyleSheet(f"""
+            QFrame#headerFrame {{
+                color: white;
+                background-color: {blue};
+                border: 2px solid {blue};
+                border-radius: 12px;
+                padding: 8px;
+            }}
+
+            QFrame#headerFrame QLabel {{
+                color: white;
+            }}
+        """)
+
+        logoImg = QPixmap("images/logo.png")
+        self.ui.logo.setPixmap(logoImg.scaledToHeight(36, Qt.SmoothTransformation))
+
+        curMemImg = QPixmap("images/member.png")
+        self.ui.curMem.setPixmap(curMemImg)
+
+        userImg = QPixmap("images/active.png")
+        self.ui.userPic.setPixmap(userImg)
+
+        self.ui.projectFrame.setStyleSheet(f"""
+            QFrame#projectFrame {{
+                border: 2px solid {blue};
+                border-radius: 12px;
+                padding: 8px;
+            }}
+
+            QFrame#projectTitleFrame {{
+                background-color: {yellow};
+                border: 2px solid {blue};
+                border-radius: 8px;
+                padding: 4px;
+            }}
+
+            QFrame#projectFrame QPushButton {{
+                background-color: white;
+                border: 1px solid {blue};
+                border-radius: 6px;
+                margin: 4px 0px;
+            }}
+
+            QFrame#projectFrame QPushButton::hover {{
+                background-color: {blue};
+                color: white
+            }}
+        """)
+
+        self.ui.notiFrame.setStyleSheet(f"""
+            QFrame#notiFrame {{
+                border: 2px solid {blue};
+                border-radius: 12px;
+                padding: 8px;
+            }}
+
+            QFrame#notiTitleFrame {{
+                background-color: {yellow};
+                border: 2px solid {blue};
+                border-radius: 8px;
+                padding: 4px;
+            }}
+        """)
+
+        self.ui.projCharterFrame.setStyleSheet(f"""
+            QFrame#projCharterFrame {{
+                border: 2px solid {blue};
+                border-radius: 12px;
+                padding: 8px;
+            }}
+
+            QFrame#projCharterTitleFrame {{
+                background-color: {yellow};
+                border: 2px solid {blue};
+                border-radius: 8px;
+                padding: 4px;
+            }}
+
+            QFrame#projCharterFrame QPushButton {{
+                background-color: white;
+                border: 1px solid {blue};
+                border-radius: 6px;
+            }}
+
+            QFrame#projCharterFrame QPushButton::hover {{
+                background-color: {blue};
+                color: white;
+            }}
+        """)
+
+        self.ui.assignFrame.setStyleSheet(f"""
+            QFrame#assignFrame {{
+                border: 2px solid {blue};
+                border-radius: 12px;
+                padding: 8px;
+            }}
+
+            QFrame#assignTitleFrame {{
+                background-color: {yellow};
+                border: 2px solid {blue};
+                border-radius: 8px;
+                padding: 4px;
+            }}
+
+            QFrame#assignFrame QPushButton {{
+                background-color: white;
+                border: 1px solid {blue};
+                border-radius: 6px;
+            }}
+
+            QFrame#assignFrame QPushButton::hover {{
+                background-color: {blue};
+                color: white;
+            }}
+        """)
+
+        self.saveSfx = QSoundEffect(self)
+        self.saveSfx.setSource(QUrl.fromLocalFile("sounds/save.wav"))
+        self.saveSfx.setVolume(0.7)
+
+        for i in range(1, 8):
+            projBtn = getattr(self.ui, "project" + str(i))
+            projBtn.clicked.connect(lambda _, x=i: self.changeCurProj(x))
+            projBtn.clicked.connect(self.saveSfx.play)
+
+        self.ui.saveProjCharterBtn.clicked.connect(self.saveProjCharter)
+        self.ui.saveProjCharterBtn.clicked.connect(self.saveSfx.play)
+
+        for i in range(1, 6):
+            saveTaskBtn = getattr(self.ui, "saveTask" + str(i) + "Btn")
+            saveTaskBtn.clicked.connect(lambda _, x=i: self.saveTask(x))
+            saveTaskBtn.clicked.connect(self.saveSfx.play)
+
+        self.logoAnim = None
+        self.logoBaseGeo = self.ui.logo.geometry()
+
+        self.logoShadow = QGraphicsDropShadowEffect(self.ui.logo)
+        self.logoShadow.setOffset(0, 0)
+        self.logoShadow.setBlurRadius(0)
+        self.logoShadow.setColor(QColor(255, 215, 127, 200))
+        self.ui.logo.setGraphicsEffect(self.logoShadow)
+
+        self.ui.logo.setCursor(Qt.PointingHandCursor)
+        self.ui.logo.clicked.connect(self.playLogoAnim)
+
+    def playLogoAnim(self):
+        if self.logoAnim and self.logoAnim.state() == QAbstractAnimation.Running:
+            return
+
+        base = self.logoBaseGeo
+        cx = base.center().x()
+        cy = base.center().y()
+
+        def scaledRect(scale: float) -> QRect:
+            w = int(base.width() * scale)
+            h = int(base.height() * scale)
+            return QRect(cx - w // 2, cy - h // 2, w, h)
+
+        group = QSequentialAnimationGroup(self)
+
+        a1 = QPropertyAnimation(self.ui.logo, b"geometry")
+        a1.setDuration(120)
+        a1.setEasingCurve(QEasingCurve.OutCubic)
+        a1.setStartValue(base)
+        a1.setEndValue(scaledRect(1.12))
+
+        a2 = QPropertyAnimation(self.ui.logo, b"geometry")
+        a2.setDuration(120)
+        a2.setEasingCurve(QEasingCurve.OutBack)
+        a2.setStartValue(scaledRect(1.12))
+        a2.setEndValue(scaledRect(0.98))
+
+        a3 = QPropertyAnimation(self.ui.logo, b"geometry")
+        a3.setDuration(140)
+        a3.setEasingCurve(QEasingCurve.OutCubic)
+        a3.setStartValue(scaledRect(0.98))
+        a3.setEndValue(base)
+
+        group.addAnimation(a1)
+        group.addAnimation(a2)
+        group.addAnimation(a3)
+
+        glow = QSequentialAnimationGroup(self)
+        g1 = QPropertyAnimation(self.logoShadow, b"blurRadius")
+        g1.setDuration(140)
+        g1.setStartValue(0)
+        g1.setEndValue(22)
+
+        g2 = QPropertyAnimation(self.logoShadow, b"blurRadius")
+        g2.setDuration(240)
+        g2.setStartValue(22)
+        g2.setEndValue(0)
+
+        glow.addAnimation(g1)
+        glow.addAnimation(g2)
+
+        both = QParallelAnimationGroup(self)
+        both.addAnimation(group)
+        both.addAnimation(glow)
+
+        self.logoAnim = both
+        self.logoAnim.start()
+
+    def changeCurProj(self, i):
+        self.ui.curProj.setText("Current Project: Project " + str(i))
+
+    def saveProjCharter(self):
+        projObjText = self.ui.projObjInput.text()
+        self.ui.projObjInput.setText(projObjText)
+
+        projStructText = self.ui.projStructInput.text()
+        self.ui.projStructInput.setText(projStructText)
+
+        projMemText = self.ui.projMemInput.text()
+        self.ui.projMemInput.setText(projMemText)
+
+        projDurText = self.ui.projDurInput.text()
+        self.ui.projDurInput.setText(projDurText)
+
+        projDeadlineText = self.ui.projDeadlineInput.text()
+        self.ui.projDeadlineInput.setText(projDeadlineText)
+
+    def saveTask(self, i):
+        taskInput = getattr(self.ui, "task" + str(i) + "Input")
+        taskInputText = taskInput.text()
+        taskInput.setText(taskInputText)
+
+        nameInput = getattr(self.ui, "name" + str(i) + "Input")
+        nameInputText = nameInput.text()
+        nameInput.setText(nameInputText)
+
+        statusInput = getattr(self.ui, "status" + str(i) + "Input")
+        statusInputText = statusInput.text()
+        statusInput.setText(statusInputText)
+
+if __name__ == "__main__":
+    app = QApplication()
+    w = mainPage()
+    w.show()
+    sys.exit(app.exec())
