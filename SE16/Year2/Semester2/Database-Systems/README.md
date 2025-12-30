@@ -10,8 +10,8 @@
 | 2 | [02/12/2025](Notes/Lecture2.md) | Types of Schema, Defination of Relation in Database Theory |
 | 3 | [09/12/2025](Notes/Lecture3.md) | Properties of Database Table |
 | 4 | [16/12/2025](Notes/Lecture4.md) | Integrity Rules |
-| 5 | [23/12/2025](Notes/Lecture5.md) | Data Manipulation and Intoduction to DB analysis (Normalization) |
-| 6 | [30/12/2025](Notes/Lecture6.md) |  |
+| 5 | [23/12/2025](Notes/Lecture5.md) | Data Manipulation and Intoduction to DB analysis (Normalization) (1NF) |
+| 6 | [30/12/2025](Notes/Lecture6.md) | Normalization (Cont.) (2NF, 3NF) |
 
 ---
 
