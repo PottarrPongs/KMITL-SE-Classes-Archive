@@ -113,7 +113,7 @@ Answer:
 A Foreign Key is a Non-Key attribute of a relation which is the Primary
 Key of other relations or the same relation.
 
-Example in `EMP` (Employyes) Table and `DEPT` (Department) Table:  
+Example in `EMP` (Employees) Table and `DEPT` (Department) Table:  
 
 `EMP`
 

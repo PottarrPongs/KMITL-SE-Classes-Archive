@@ -11,6 +11,7 @@
 | 3 | [09/12/2025](Notes/Lecture3.md) | Properties of Database Table |
 | 4 | [16/12/2025](Notes/Lecture4.md) | Integrity Rules |
 | 5 | [23/12/2025](Notes/Lecture5.md) | Data Manipulation and Intoduction to DB analysis (Normalization) |
+| 6 | [30/12/2025](Notes/Lecture6.md) |  |
 
 ---
 
