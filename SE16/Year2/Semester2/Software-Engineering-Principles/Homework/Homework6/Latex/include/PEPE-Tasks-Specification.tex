@@ -1,0 +1,87 @@
+\subsection*{Processes}
+
+\resizebox{\textwidth}{!}{
+\def\arraystretch{1.5}
+\begin{tabular}{|c|c|l|c|c|}
+    \hline
+    No. & Label & Name & Day(s) to complete & Predecessor \\
+    \hline
+    1 & $START$ & Start the project (01/01/2025) & 0 & - \\
+    2 & $T_{1}$ & Prepare Project Topic & 2 & $START$ (1) \\
+    3 & $T_{2}$ & Define Requirements & 4 & $START$ (1) \\
+    4 & $T_{3}$ & Define Core Features & 3 & $START$ (1) \\
+    5 & $T_{4}$ & Decide Technology Stack & 2 & $START$ (1) \\
+    6 & $M_{1}$ & Finished Planning Phase & 2 & $T_{1}$, $T_{2}$, $T_{3}$, $T_{4}$ (2;3;4;5)  \\
+    7 & $T_{5}$ & Design UI Layout & 3 & $M_{1}$ (6) \\
+    8 & $T_{6}$ & Design and Normalize Database Model & 4 & $M_{1}$ (6) \\
+    9 & $T_{7}$ & Design API & 6 & $M_{1}$ (6) \\
+    10 & $M_{2.1}$ & Finished Designing Phase (Client Side) & 0 & $T_{5}$ (7) \\
+    11 & $M_{2.2}$ & Finished Designing Phase (Server Side) & 0 & $T_{6}$, $T_{7}$ (8;9)  \\
+    12 & $T_{8}$ & Implement Client Side & 18 & $M_{2.1}$ (10) \\
+    13 & $T_{9}$ & Implement Server Side & 22 & $M_{2.2}$ (11) \\
+    14 & $M_{3.1}$ & Finished Development Phase (Client Side) & 0 & $T_{8}$ (12) \\
+    15 & $M_{3.2}$ & Finished Development Phase (Server Side) & 0 & $T_{9}$ (13) \\
+    16 & $T_{10}$ & Test Client Side & 2 & $M_{3.1}$ (14) \\
+    17 & $T_{11}$ & Test Server Side & 2 & $M_{3.2}$ (15) \\
+    18 & $M_{4}$ & Finished Testing Phase & 0 & $M_{3.2}$ (16;17) \\
+    19 & $T_{12}$ & Deploy Client Side & 1 & $T_$ (18) \\
+    20 & $T_{13}$ & Deploy Server Side & 1 & $M_{3.2}$ (18) \\
+    21 & $FINISH$ & Finished the project & 0 & $T_{11}$, $T_{13}$ (19;20) \\
+
+    \hline
+\end{tabular}
+}
+
+\subsubsection*{Tasks and Milestones}
+\begin{enumerate}
+    \item Planning Phase
+        \begin{itemize}
+            \item Prepare Project Topic
+            \item Define Requirements
+            \item Define Core Features
+            \item Decide Technology Stack
+        \end{itemize}
+    \item Designing Phase
+        \begin{itemize}
+            \item Design UI Layout
+            \item Design and Normalize Database Model
+            \item Design API
+        \end{itemize}
+    \item Development Phase
+        \begin{itemize}
+            \item Implement Client Side
+            \begin{itemize}
+                \item Main Page
+                \item User Uettings Page
+                \item Task Assignment Page
+                \begin{itemize}
+                    \item Live Markdown Preview
+                    \item  Simple Editor
+                    \item  Save File Button
+                \end{itemize}
+                \item Design page
+                \begin{itemize}
+                    \item Gantt chart
+                    \item Class diagram
+                    \item Interaction diagram
+                \end{itemize}
+            \end{itemize}
+            \item Implement Server Side
+            \begin{itemize}
+                \item Implement Program API
+                \item Implement Database
+            \end{itemize}
+        \end{itemize}
+    \item Testing Phase
+        \begin{itemize}
+            \item Test Client Side
+            \item Test Server Side
+        \end{itemize}
+    \item Deployment Phase
+        \begin{itemize}
+            \item Deploy Server Side
+            \item Deploy Server Side
+        \end{itemize}
+\end{enumerate}
+
+\newpage
