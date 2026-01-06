@@ -1,0 +1,62 @@
+\documentclass[12pt]{report}
+
+\usepackage{
+    amsmath, amssymb, enumitem, graphicx, indentfirst,
+    minted, multicol, pgfplots, tikz
+}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+	\includegraphics[width=0.3\textwidth]{../../images/KMITL Logo.png} \\
+	\vspace*{1cm}
+	{\LARGE \textbf{Homework 6}} \\[0.5cm]
+	{\large \textbf{PEPE (Project Elaborating Program with Extension) Proposal}} \\[0.5cm]
+	\vspace*{0.5cm}
+	{\large \textbf{Software Engineering Principle}} \\[0.5cm]
+    {\large \textbf{Software Engineering Program,}} \\[0.5cm]
+	{\large \textbf{Department of Computer Engineering,}} \\[0.5cm]
+	{\large \textbf{School of Engineering, KMITL}} \\[1cm]
+    {\Large 67011235 Paphavee Yanmook} \\[0.5cm]
+    {\Large 67011287 Ramida Laphasphokin} \\[0.5cm]
+    {\Large 67011352 Theepakorn Phayonrat} \\[0.5cm]
+\end{titlepage}
+
+\chapter*{PEPE (Project Elaborating Program with Extension)}
+
+\input{./include/PEPE-Project-Specification.tex}
+
+\newpage
+
+\subsection*{Demonstration UI:}
+\subsubsection*{Main Page}
+\noindent\includegraphics[width=0.80\textwidth]{./images/MainPage.png} \\
+\subsubsection*{Task Assignment Page}
+\noindent\includegraphics[width=0.80\textwidth]{./images/TaskAssignmentPage1.png} \\
+\\
+\noindent\includegraphics[width=0.80\textwidth]{./images/TaskAssignmentPage2.png} \\
+\\
+\noindent\includegraphics[width=0.80\textwidth]{./images/TaskAssignmentPage3.png} \\
+\newpage
+\subsubsection*{Design Page}
+\noindent\includegraphics[width=0.80\textwidth]{./images/DesignPageClassDiagram.png} \\
+\\
+\noindent\includegraphics[width=0.80\textwidth]{./images/DesignPageInteractionDiagram.png} \\
+\\
+\noindent\includegraphics[width=0.80\textwidth]{./images/DesignPageGanttChart.png} \\
+\\
+\subsubsection*{User Settings Page}
+\noindent\includegraphics[width=0.80\textwidth]{./images/UserSettingsPage.png} \\
+
+\newpage
+
+% \section*{Processes}
+
+% \inputminted[fontsize=\scriptsize, breaklines, breakanywhere, breakindent=1em]{markdown}{../Tasks.md}
+
+\input{./include/PEPE-Tasks-Specification.tex}
+\input{./include/PEPE-Graphic-Include.tex}
+
+\end{document}
