@@ -13,7 +13,7 @@
 | 2 | [17/12/2025](Notes/Lecture2.md) | Computer Networks |
 | 3 | [24/12/2025](Notes/Lecture2.md) | Physical Level Computer Networks |
 | - | 31/12/2025 | New Year Eve Holiday |
-| 4 | 07/01/2026 | ... |
+| 4 | 07/01/2026 | Data Link Layer |
 
 ---
 
