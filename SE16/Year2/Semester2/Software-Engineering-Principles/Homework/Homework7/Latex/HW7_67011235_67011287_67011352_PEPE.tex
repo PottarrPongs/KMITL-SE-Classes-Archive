@@ -1,0 +1,109 @@
+\documentclass[13pt]{report}
+
+\usepackage{
+    amsmath, amssymb, enumitem, graphicx, indentfirst,
+    minted, multicol, pgfplots, tikz
+}
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	\vspace*{1cm}
+	\includegraphics[width=0.3\textwidth]{../../images/KMITL Logo.png} \\
+	\vspace*{1cm}
+	{\LARGE \textbf{Homework 7}} \\[0.5cm]
+	{\large \textbf{PEPE (Project Elaborating Program with Extension) Proposal}} \\[0.5cm]
+	\vspace*{0.5cm}
+	{\large \textbf{Software Engineering Principle}} \\[0.5cm]
+    {\large \textbf{Software Engineering Program,}} \\[0.5cm]
+	{\large \textbf{Department of Computer Engineering,}} \\[0.5cm]
+	{\large \textbf{School of Engineering, KMITL}} \\[1cm]
+    {\Large 67011235 Paphavee Yanmook} \\[0.5cm]
+    {\Large 67011287 Ramida Laphasphokin} \\[0.5cm]
+    {\Large 67011352 Theepakorn Phayonrat} \\[0.5cm]
+\end{titlepage}
+
+\chapter*{PEPE (Project Elaborating Program with Extension)}
+
+\newpage
+
+\section*{Requirements}
+
+\subsection*{User Requirements}
+
+\subsubsection*{Functional}
+
+\begin{itemize}
+    \item The software shall allow users to create, view, edit and
+        delete desired projects.
+    \item The software shall allow users to create tasks, assign them
+        to team members and set deadlines.
+    \item The software shall allow users to update their task status
+        such as in progress, completed, etc.
+    \item The software shall allow users to view project timeline in
+        a Gantt Chart and draw diagrams in canvas.
+    \item The software shall allow users to collaborate and receive
+        notifications for task update.
+\end{itemize}
+
+\subsubsection*{Non-Functional}
+
+\begin{itemize}
+    \item The application shall save the diagrams into \texttt{SVG} or
+        \texttt{PNG} format and paste into any kind of document file.
+    \item The system shall be accessible through modern web browsers
+        without requiring additional plugins.
+    \item The user interface shall be intuitive and easy to navigate
+        for both managers and team members for collaborative actions,
+        including modifications of the charts and diagrams.
+    \item The system shall ensure data consistency and prevent unauthorized
+        access to project data.
+    \item The application shall maintain availability during concurrent
+        usage by multiple users.
+\end{itemize}
+
+\newpage
+
+\subsection*{System Requirements}
+
+\subsubsection*{Functional}
+
+\begin{itemize}
+    \item The system shall support storage and retrieval of project
+        metadata and design artifacts (e.g., diagrams, timelines)
+        using \texttt{JSON} fields in PostgreSQL.
+    \item The system shall log application errors, security events,
+        and system activity using Django’s logging framework for
+        monitoring and debugging.
+    \item The system shall provide a frontend implemented using React
+        with TypeScript, enabling dynamic rendering of project boards,
+        tasks, and project views without full page reloads.
+    \item The system shall expose RESTful APIs implemented using Django
+        and Django REST Framework (DRF) to handle user authentication,
+        project management, task assignment, and metadata retrieval.
+    \item The system shall support real-time communication using Django
+        Channels and WebSockets, allowing instant synchronization of
+        task updates, assignments, mentions, and notifications across
+        connected clients.
+\end{itemize}
+
+\subsubsection*{Non-Functional}
+
+\begin{itemize}
+    \item The system shall maintain low-latency real-time updates, with
+        WebSocket message propagation handled via Django Channels backed
+        by Redis as a message broker.
+    \item The system shall secure all client-server communication using
+        \texttt{HTTPS} and secure WebSocket protocols, with reverse proxy
+        support provided by Nginx.
+    \item The system shall be scalable to support multiple concurrent
+        users by utilizing ASGI servers (e.g., Uvicorn/Daphne) and
+        stateless backend services.
+    \item The system shall ensure data integrity and transactional
+        consistency through PostgreSQL ACID-compliant transactions.
+    \item The Database shall be normalized to the fifth normal form
+        (5NF) to prevent the \texttt{INSERT} and \texttt{DELETE} problem
+        in the relational database.
+\end{itemize}
+\end{document}
