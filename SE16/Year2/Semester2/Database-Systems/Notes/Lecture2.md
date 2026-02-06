@@ -121,7 +121,7 @@ integrity constraints and languages for application development
     - Divide
 - Relational Assignment
 
-> [NOTE]
+> [NOTE]  
 > Since these SQL and NoSQL are Logical term, we cannot compare perfomance,
 > like we've talked last lecture. But we can still compare on the platform
 > it is running on.
