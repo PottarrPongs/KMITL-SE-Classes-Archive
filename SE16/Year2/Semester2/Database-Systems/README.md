@@ -18,10 +18,10 @@
 | 9 | [27/01/2026](Notes/Lecture9.md) | Entity Relationship Diagram (ERD) |
 | 10 | [03/02/2026](Notes/Lecture10.md) | ERD (Cont.) (Mapping ERD to DB Table) |
 | 11 | [10/02/2026](Notes/Lecture11.md) | ERD (Cont.) (Identifier Problems) and Intoduction to SQL |
-| 12 | [17/02/2026](Notes/Lecture12.md) |  |
-| 13 | [24/02/2026](Notes/Lecture13.md) |  |
-| 14 | [03/03/2026](Notes/Lecture14.md) |  |
-| 15 | [10/03/2026](Notes/Lecture15.md) |  |
+| 12 | [17/02/2026](Notes/Lecture12.md) | ... |
+| 13 | [24/02/2026](Notes/Lecture13.md) | ... |
+| 14 | [03/03/2026](Notes/Lecture14.md) | ... |
+| 15 | [10/03/2026](Notes/Lecture15.md) | ... |
 | 15 | 17/03/2026 | Final Exam Period |
 
 ---
