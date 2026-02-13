@@ -1,0 +1,777 @@
+\documentclass[10pt]{report}
+\usepackage[a4paper,left=1cm,right=1cm,top=1cm,bottom=1cm]{geometry}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{PLAMacros}
+\begin{document}
+\pagestyle{empty}
+\noindent \textbf{Theepakorn Phayonrat 67011352 | Linear Algebra Midterm Note}
+\section*{Lecture 1: Vector}
+\begin{multicols}{2}
+
+\subsection*{Dot Product / Inner Product}
+
+$$\PLAMatrix{b}{v_{1}\\v_{2}\\} \cdot \PLAMatrix{b}{w_{1}\\w_{2}\\} = v_{1}w_{1} + v_{2}w_{2}$$
+\textbf{Note:} $v = \PLAMatrix{b}{1\\2\\}$ can be written as $v = (1, 2)$
+
+\subsection*{Length \& Unit Vector}
+
+\noindent \textbf{Length of $v$:} $\|v\| = \sqrt{v \cdot v} = (v_{1}^{2} +
+v_{2}^{2} + v_{3}^{2} + ... + v_{n}^{2})^{\frac{1}{2}}$ \\
+
+\noindent \textbf{Tips:} Given $v = (1, 2, 3)$, \\
+$\|v\| = (1, 2, 0) \cdot (0, 0, 3)
+= \sqrt{\sqrt{1^{2} + \sqrt{2}} + 3^{2}} = \sqrt{14}$ \\
+
+\textbf{Unit Vector $u$:} Vector which $\|u\| = 1$
+
+$$u = \frac{v}{\|v\|} \text{ where } u \text{ has same direction as } v$$
+
+\subsection*{Angles Between Two Vectors}
+
+\noindent For vector $v$ and $w$,
+\begin{enumerate}[nosep]
+    \item if $v \cdot w = 0$, then the angle between them is 
+        90\textdegree.
+    \item $v \cdot w = w \codt v$
+\end{enumerate}
+
+\columnbreak
+
+\noindent From \textbf{Pythagoras Law:} $a^{2} + b^{2} = c^{2}$, \\
+\begin{itemize}
+    \item Perpendicular vectors:
+        $$\|v\|^{2} + \|w\|^{2} = \|v - w\|^{2}$$
+    \item Pythagoras Law:
+        \begin{equation}\notag
+        \begin{aligned}
+            (v_{1}^{2} + v_{2}^{2}) + (w_{1}^{2} + w_{2}^{2}) &= (v_{1} - w_{1})^{2} + (v_{2} - w_{2})^{2} \\
+            0 &= -2v_{1}w_{1} - 2v_{2}w_{2} \\
+            2v_{1}w_{1} + 2v_{2}w_{2} &= 0 \\
+            v_{1}w_{1} + v_{2}w_{2} &= 0 \\
+            v \cdot w &= 0 \\
+            \therefore \theta &= \text{90\textdegree}
+        \end{aligned}
+        \end{equation}
+\end{itemize}
+
+\noindent \textbf{Note:} If $v \cdot w \neq 0$, then it may take \textbf{positive}
+or \textbf{negative} value.
+\begin{equation}\notag
+\begin{aligned}
+    v \cdot w
+    \begin{cases}
+        < 0 & \text{, then } \theta \in \mathbb{R}^{+} \\
+        = 0 & \text{, then } \theta = 0 \\
+        > 0 & \text{, then } \theta \in \mathbb{R}^{-} \\
+    \end{cases}
+\end{aligned}
+\end{equation}
+
+\noindent \textbf{Cosine Formula:} Given nonzero $v$ and nonzero $w$
+vectors, then \\
+
+$$\frac{v \cdot w}{\|v\| \|w\|} = \cos{\theta}$$
+
+\noindent \textbf{Inequalities:}
+\begin{itemize}
+    \item \textbf{Schwarz Inequality:} $\|v \cdot w\| \le \|v\| \|w\|$
+    \item \textbf{Triangle Inequality:} $\|v + w\| \le \|v\| + \|w\|$
+\end{itemize}
+
+\end{multicols}
+
+\section*{Lecture 2: Vector (Cont.)}
+
+\begin{multicols}{2}
+
+\subsection*{Matrices}
+\noindent \textbf{Combination of vectors:} \\
+
+$$u = \PLAMatrix{b}{1\\2\\3\\}, v = \PLAMatrix{b}{4\\5\\6\\} \rightarrow A = \PLAMatrix{b}{1 & 4\\2 & 5\\3 & 6\\}$$
+
+\noindent Here, $A$ is a $3 \mult 2$ \textbf{matrix} where $m = 3$ rows \\
+and $n = 2$ columns\\
+
+\textbf{Three Vectors:}
+
+$$u = \PLAMatrix{b}{1\\-1\\0}, v = \PLAMatrix{b}{0\\1\\-1}, w = \PLAMatrix{b}{0\\0\\1}$$
+
+\noindent their linear combination in 3D space are \\
+$x_{1}u + x_{2}v + x_{3}w$ \\
+
+$$x_{1}\PLAMatrix{b}{1\\-1\\0} + x_{2}\PLAMatrix{b}{0\\1\\-1} + x_{3}\PLAMatrix{b}{0\\0\\1} = \PLAMatrix{b}{x_{1}\\-x_{1} + x_{2}\\-x_{2} + x_{3}}$$
+
+\columnbreak
+
+\noindent \textbf{Matrix times vector Combination of columns:}
+
+$$Ax = \PLAMatrix{b}{1&0&0\\-1&1&0\\0&-1&1} \PLAMatrix{b}{x_{1}\\x_{2}\\x_{3}} = \PLAMatrix{b}{x_{1}\\-x_{1} + x_{2}\\-x_{2} + x_{3}}$$
+
+\noindent We can compare $Ax$ with the Dot Product of
+
+$$\PLAMatrix{b}{1&0&0\\-1&1&0\\0&-1&1} \PLAMatrix{b}{x_{1}\\x_{2}\\x_{3}}$$
+
+\subsection*{System of Linear Equations}
+
+\noindent Let
+$$b = \PLAMatrix{b}{x_{1}\\-x_{1} + x_{2}\\-x_{2} + x_{3}}$$
+
+\noindent \textbf{Equation:} $Ax = b$ \\
+\noindent \textbf{Solution:} $x = A^{-1}b$ \\
+\end{multicols}
+
+\newpage
+
+\noindent \textbf{Theepakorn Phayonrat 67011352 | Linear Algebra Midterm Note}
+
+\section*{Lecture 2: Vector (Cont.)}
+
+\begin{multicols}{2}
+
+\subsection*{System of Linear Equations (Cont.)}
+
+\noindent From
+
+$$Ax = b$$
+
+\noindent We can think of
+\begin{itemize}
+    \item $x$ is the input of the system.
+    \item $b$ is the output of the system.
+    \item $A$ is the function of the system.
+    \item \textbf{Note:} It is possible that $Ax = 0$ when $A \neq 0$ and $x \new 0$. \\
+\end{itemize}
+
+\noindent \textbf{The Inverse of Matrix:}
+
+\begin{equation}\notag
+\begin{aligned}
+    x &= A^{-1}b \\
+    \PLAMatrix{b}{x_{1}\\x_{2}\\x_{3}\\} &= \PLAMatrix{b}{b_{1}\\b_{1} + b_{2}\\b_{1} + b_{2} + b_{3}\\} \\
+    \PLAMatrix{b}{x_{1}\\x_{2}\\x_{3}\\} &= \PLAMatrix{b}{1&0&0\\1&1&0\\1&1&1\\} \PLAMatrix{b}{b_{1}\\b_{2}\\b_{3}\\} \\
+\end{aligned}
+\end{equation}
+
+\begin{itemize}
+    \item For every $b$, there is one solution to $Ax = b$.
+    \item The matrix $A^{-1}$ produces $x = A^{-1}b$
+\end{itemize}
+
+$$Ax = \PLAMatrix{b}{1&0&0\\-1&1&0\\0&-1&1} \PLAMatrix{b}{x_{1}\\x_{2}\\x_{3}\\} = \PLAMatrix{b}{x_{1}\\-x_{2} + x_{3}\\-x{2} + x_{3}\\}$$ \\
+
+\noindent \textbf{$A$} is called the  \textbf{difference matrix} because
+$b$ contains differences of $x$. \\
+
+$$Cx = \PLAMatrix{b}{1&0&-1\\-1&1&0\\0&-1&1} \PLAMatrix{b}{x_{1}\\x_{2}\\x_{3}\\} = \PLAMatrix{b}{x_{1} - x_{3}\\x_{2} - x_{3}\\x{2} - x_{3}\\}$$ \\
+
+\noindent \textbf{$C$} is called the  \textbf{cyclic difference matrix}.
+
+\subsection*{Independence \& Dependence}
+
+\noindent \plotA{10cm}{10cm}{2}{0.5}{
+    \plotDV{blue}{0}{0}{1}{w}
+    \plotDPV{red}{1}{-1}{0}{u}
+    \plotDPV{green}{0}{1}{-1}{v}
+}{
+    xticklabels=\empty,
+    yticklabels=\empty,
+    zticklabels=\empty
+}
+\plotA{10cm}{10cm}{2}{0.5}{
+    \plotDPV{blue}{-1}{0}{1}{w^{*}}
+    \plotDPV{red}{1}{-1}{0}{u}
+    \plotDPV{green}{0}{1}{-1}{v}
+}{
+    xticklabels=\empty,
+    yticklabels=\empty,
+    zticklabels=\empty
+}
+
+\noindent \textbf{Independence:} $w$ is not in the plane if $u$ nand $v$. \\
+\noindent \textbf{Dependence:} $w^{*}$ is in the plane if $u$ nand $v$. \\
+
+\noindent \textbf{Note:} Why? $\rightarrow w^{*}$ is a linear combination
+of $u$ and $v$.
+
+\columnbreak
+
+\subsection*{Independence \& Dependence (Cont.)}
+
+\begin{itemize}
+    \item $u, v, w$ are \textbf{independent}: No combination except
+        $0u + 0v + 0w = 0$ gives $b = 0$.
+    \item $u, v, w^{*}$ are \textbf{dependent}: Other combinations like
+        $u + v + w^{*} = 0$ gives $b = 0$.
+\end{itemize}
+
+\noindent For \textbf{n \mult n} matrix:
+\begin{itemize}
+    \item Independent columns: $Ax = 0$ has one solution. $A$ is an
+        \textbf{invertible matrix}.
+    \item Dependent columns: $Cx = 0$ has many solution. $C$ is an
+        \textbf{singular matrix}.
+\end{itemize}
+
+\subsection*{Vectors \& Linear Equations}
+
+\noindent The main problem in Linear Algebra is to solve a system of
+linear equations. \\
+
+\noindent \textbf{Two Equations, Two Unknowns (Rows):} \\
+
+\noindent Given 2 equations:
+
+\begin{equation} \notag
+\begin{aligned}
+    x - 2y &= 1 \\
+    3x + 2y &= 11
+\end{aligned}
+\end{equation}
+
+\noindent They can be written as:
+
+$$x\PLAMatrix{b}{1\\3\\} + y\PLAMatrix{b}{-2\\2\\} = \PLAMatrix{b}{1\\11\\} = b$$
+
+\noindent Our goal is to find $\PLAMatrix{b}{x\\y\\}$ which:
+
+$$Ax = b \text{ where } A = \PLAMatrix{b}{1&-2\\3&2\\}$$
+
+\noindent $A$ is called the \textbf{coefficient matrix}. \\
+
+\noindent By matrix-vector multiplication:
+
+$$\PLAMatrix{b}{1&-2\\3&2\\} \PLAMatrix{b}{x\\y\\}= \PLAMatrix{b}{1\\11\\}$$
+
+\noindent We get $x = 3$ and $y = 1$.
+
+\end{multicols}
+
+\newpage
+
+\noindent \textbf{Theepakorn Phayonrat 67011352 | Linear Algebra Midterm Note}
+
+\section*{Lecture 2: Vector (Cont.)}
+
+\begin{multicols}{2}
+
+\subsection*{Three equations in Three Unknowns}
+
+\noindent Given the three unknowns are $x$, $y$, $z$ and the linear
+equations are:
+
+\begin{equation}\notag
+\begin{aligned}
+    x + 2y + 3z &= 6 \\
+    2x + 5y + 2z &= 4 \\
+    6x - 3y + z &= 2 \\
+\end{aligned}
+\end{equation}
+
+\begin{itemize}
+    \item The \textbf{row picture} shows three planes meeting at the
+        single point.
+    \item The \textbf{column picture} combines three columns to produce
+        the vector $(6, 4, 2)$.
+\end{itemize}
+
+\noindent \textbf{Matrix equation:} $Ax = b$
+
+$$\PLAMatrix{b}{1&2&3\\2&5&2\\6&-3&1\\} \PLAMatrix{b}{x\\y\\z\\} = \PLAMatrix{b}{5\\4\\2\\}$$
+
+\begin{itemize}
+    \item \textbf{Multiplication by rows:}
+        $$Ax = \PLAMatrix{b}{(row_{1}) \cdot x\\row_{2}) \cdot y\\row_{3}) \cdot z\\}$$
+    \item \textbf{Multiplication by columns:}
+        $$Ax = x\PLAMatrix{b}{1\\2\\6\\} + y\PLAMatrix{b}{2\\5\\-3\\} + z\PLAMatrix{b}{3\\2\\1\\}$$
+\end{itemize}
+
+\noindent \textbf{Identity Matrix:} \\
+
+\noindent $I = \PLAMatrix{b}{1&0&0\\0&1&0\\0&0&1\\}$, $I$ is the identity matrix.
+
+\subsection*{Matrix Notation}
+
+$$A = \PLAMatrix{b}{a_{11}&a_{12}\\a_{21}&a_{22}\\} = \PLAMatrix{b}{A(1,1)&A(1,2)\\A(2,1)&A(2,2)\\}$$
+
+\noindent For an \textbf{m \mult n} matrix:
+\begin{itemize}
+    \item the row index $i = 1..m$
+    \item the column index $j = 1..n$
+    \item $a_{ij} = A(i,j)$ is the component at row $i$ column $j$.
+\end{itemize}
+
+\subsection*{The Idea of Elimination}
+
+\noindent \textbf{Goal:} To produce an \textbf{upper-triangular system}
+so that we can use the upper-triangular to eliminate the rest of the
+variables by process called \textbf{back substitution}.
+
+\noindent Given equations:
+
+\begin{equation}\notag
+\begin{aligned}
+    x - 2y &= 1 & (E1) \\
+    3x + 2y &= 11 & (E2) \\
+\end{aligned}
+\end{equation}
+
+\columnbreak
+
+\subsection*{The Idea of Elimination (Cont.)}
+
+\noindent Here, we have:
+
+\begin{itemize}
+    \item To eliminate $x$, subtract a muliple of \textbf{E1} from the
+        \textbf{E2}.
+        $$(E2) - 3 \times (E1)$$
+    \item \textbf{Pivot}: first nonzero in the row that does the elimination \\
+    \item \textbf{Multiplier}: (entry to eliminate) divided by (pivot) (Here: 3/1) \\
+    \item The pivot of the new $(E2)$ is $8$.
+        \begin{equation}\notag
+        \begin{aligned}
+            x - 2y &= 1 & (E1) \\
+            8y &= 8& (E2) \\
+        \end{aligned}
+        \end{equation}
+    \item To solve \textbf{n} equations, we need \textbf{n} pivots.
+    \item The pivots are the diagonal of the triangle after the elimination.
+    \item \textbf{Important:} Sometimes, if the pivot is $0$, it is going
+        to have \textbf{failure}.
+        \begin{equation}\notag
+        \begin{aligned}
+            x - 2y &= 1 & \\
+            3x - 6y &= 11& \\
+            \\
+            x - 2y &= 1 \\
+            0y &= 8 \text{ No solution} \\
+            \\
+            x - 2y &= 1 & \\
+            3x - 6y &= 3& \\
+            \\
+            x - 2y &= 1 \\
+            0y &= 0 \text{ Infinitely many solutions (Too many solutions)} \\
+        \end{aligned}
+        \end{equation}
+\end{itemize}
+\end{multicols}
+
+\newpage
+
+\noindent \textbf{Theepakorn Phayonrat 67011352 | Linear Algebra Midterm Note}
+
+\section*{Lecture 3: Elimination}
+
+\begin{multicols}{2}
+\subsection*{Elimination Using Matrices}
+
+\noindent \textbf{Goal:} To express all steps of elimination in the
+clearest possible way.
+
+\noindent The matrix form of a linear system is $Ax = b$
+\begin{itemize}
+    \item $A$ is the coefficient (square) matrix.
+    \item $x$ is the vector of unknowns.
+    \item $b$ is the vector of RHS.
+\end{itemize}
+
+\subsection*{The Form of One Elimination Step}
+
+\noindent Given the vector:
+
+$$b = \PLAMatrix{b}{2\\8\\10\\} \rightarrow b_{new} = \PLAMatrix{b}{2\\4\\10\\}$$
+
+\noindent $\therefore$ The elimination matrix of this case is:
+
+
+
+\begin{equation}\notag
+\begin{aligned}
+    E &= \PLAMatrix{b}{1&0&0\\-2&1&0\\0&0&1\\} \\
+    \PLAMatrix{b}{1&0&0\\-2&1&0\\0&0&1\\} \PLAMatrix{b}{2\\8\\10} &= \PLAMatrix{b}{2\\4\\10\\} \\
+    \PLAMatrix{b}{1&0&0\\-2&1&0\\0&0&1\\} \PLAMatrix{b}{b_{1}\\b_{2}\\b_{3}\\} &= \PLAMatrix{b}{b_{1}\\b_{2} - 2b_{1}\\b_{3}\\} \\
+\end{aligned}
+\end{equation}
+
+\\
+
+\noindent To build an \textbf{elimination matrix} $E$
+\begin{itemize}
+\item We start with $I$ and change one of its zeroes to to the
+    \textbf{multiplier} $-l$
+\end{itemize}
+
+\noindent \textbf{The elementary matrix or the elimination matrix $E_{ij}$} has
+the extra nonzero entry $-l$ in the $i,j$ position. Then $E_{ij}$
+subtracts a multiple $l$ of row $j$ from $i$.
+
+\noindent Here, we want to change:
+
+$$\PLAMatrix{b}{1\\3\\0\\} \rightarrow \PLAMatrix{b}{1\\3\\5\\}$$
+
+\begin{equation}\notag
+\begin{aligned}
+    E_{31} &= \PLAMatrix{b}{1&0&-l\\0&1&0\\0&0&1\\} \\
+    Eb &= \PLAMatrix{b}{1&0&-4\\0&1&0\\0&0&1\\} \PLAMatrix{b}{1\\3\\9} = \PLAMatrix{b}{1\\3\\5\\} \\
+    \\
+    l &= 4 \text{ by } 9 - 4(1) = 5 \\
+\end{aligned}
+\end{equation}
+
+\columnbreak
+
+\subsection*{Matrix Multiplication}
+
+\noindent Given:
+
+$$EA = \PLAMatrix{b}{1&0&0\\-2&1&0\\0&0&1\\} \PLAMatrix{b}{2&4&-2\\4&9&-3\\-2&-3&7\\} = \PLAMatrix{b}{2&4&-2\\0&1&1\\-2&-3&7\\}$$
+
+\noindent Matrix multiplication agrees with elimination, and the new system of
+equation can be described as $EAx = Eb$.
+
+$\threrefore$ We will get:
+
+$$E(Ax) = Eb \text{ or } EA(x) = Eb$$
+
+\noindent Which is true by \textbf{Associative Law}.
+
+$$A(BC) = (AB)C$$
+
+\noindent \textbf{Note:} Matrix multiplication does not follow
+\textbf{Commutative Law}. $\therefore$ The law is false here.
+
+\subsection*{The Matrix $P_{ij}$ for a Row Exchange}
+
+\noindent \textbf{Note:} Exchange means permute which we use a
+\textbf{permutation matrix $P_{ij}$}. \\
+
+\noindent For example: We want to change the row $2$ and $3$ of any
+vector or matrix, we use
+
+$$P_{23} = \PLAMatrix{b}{1&0&0\\0&0&1\\0&1&0\\}$$
+
+\begin{equation}\notag
+\begin{aligned}
+    P_{23} \PLAMatrix{b}{1\\2\\3\\} &= \PLAMatrix{b}{1\\3\\2\\}
+    \\
+    P_{23} \PLAMatrix{b}{2&3&1\\0&4&3\\3&5&2\\} &= \PLAMatrix{b}{2&3&1\\3&5&2\\0&4&3\\}
+\end{aligned}
+\end{equation}
+
+\subsection*{The Augmented Matrix}
+
+\noindent Now we have \textbf{rectangular matrix}. \\
+
+\noindent \textbf{Important:} If elimination does the same row operations
+to $A$ and to $b$, then we can include $b$ as an extra column and follow
+i through elimination.
+
+\noindent \textbf{Augmented Matrix:}
+
+$$\PLAMatrix{b}{Ab\\} = \PLAMatrix{b}{2&4&-2&2\\4&9&-3&8\\-2&-3&7&10}$$
+
+\noindent Elimination then acts on the whole rows of this matrix.\\
+
+\noindent By applying $E_{21}$ in the $\PLAMatrix{b}{Ab}$, we have: \\
+
+$$\PLAMatrix{b}{1&0&0\\-2&1&0\\0&0&1\\} \PLAMatrix{b}{2&4&-2&2\\4&9&-3&8\\-2&-3&7&10} = \PLAMatrix{b}{2&4&-2&2\\0&1&1&4\\-2&-3&7&10}$$
+\end{multicols}
+\newpage
+
+\noindent \textbf{Theepakorn Phayonrat 67011352 | Linear Algebra Midterm Note}
+
+\section*{Lecture 3: Elimination (Cont.)}
+\begin{multicols}{2}
+
+\subsection*{Rules for Matrix Operations}
+
+\begin{itemize}
+    \item Matrices can be added if their shapes are the same.
+    \item Matrices can be multiplied with any constant $c$.
+    \item $-A$ comes from multiplication by $c = -1$.
+    \item Adding $A$ to $-A$ leaves the \textbf{zero matrix}, with all
+        entries zero.
+    \item To do $AB$, $A$ must have $n$ columns and $B$ must have $n$
+        rows.
+    \item $AB \mult C = A \mult BC$
+    \item Given $A$ is $m \mult n$ and $B$ is $n \mult p$, $AB$ must be
+        $m \mult p$.
+    \item A row times a column is the \textbf{dot product}. The result
+        is a single number.
+    \item Addition Laws:
+        \begin{itemize}
+            \item $A + B = B + A$ (Commutative Law)
+            \item $c(A + B) = c(B + A)$ (Distributive Law)
+            \item $A + (B + C) = (A + B) + C$ (Associative Law)
+        \end{itemize}
+    \item Multiplication Laws:
+        \begin{itemize}
+            \item $C(A + B) = C(B + A)$ (Distributive Law from the Left)
+            \item $(A + B)C = AC + BC$ (Distributive Law from the Right)
+            \item $A(BC) = (AB)C$ (Associative Law for $ABC$)
+            \item In some cases, $AB \neq BA$
+            \item $AI = IA$
+            \item When $A$ is a square matrix, then $AA = A^{2}$, and
+                the matrix powers $A^{p}$ follow the same rules as
+                numbers:
+                \begin{itemize}
+                    \item $A^{p} = AAA...A$($p$ factors)
+                    \item $(A^{p})(A^{q}) = A^{p + q}$
+                    \item $(A^{p})^{q}) = A^{pq}$
+                    \item $A^{0} = I$
+                    \item $A^{-1}$ is the $A$ \textbf{inverse}.
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
+
+\columnbreak
+
+\subsection*{Block Matrices and Block Multiplication}
+
+\noindent The matrix can be cut into \textbf{blocks} (which are smaller
+matrices).
+\begin{itemize}
+    \item The augmented matrix \PLAMatrix{b}{Ab\\} is also a block matrix
+        which has two blocks of different sizes.
+    \item Multiplication by an elimination matrix gave \PLAMatrix{b}{EA\ Eb\\}
+        when their shapes permit.
+\end{itemize}
+
+\noindent \textbf{Block Multiplication:}
+
+$$\PLAMatrix{b}{A_{11}&A_{12}\\A_{21}&A_{22}\\} \PLAMatrix{b}{B_{11}\\B_{21}\\} = \PLAMatrix{b}{A_{11}B_{11} + A_{12}B_{21}\\A_{21}B_{11} + A_{22}B_{21}\\}$$
+
+\noindent \textbf{Matrix Multiplication (Columns $\mult$ Rows):} gives
+two full matrices.
+
+\noindent For example:
+
+$$\PLAMatrix{b}{1&4\\1&5\\} \PLAMatrix{b}{3&2\\1&0\\} = \PLAMatrix{b}{1\\1\\}\PLAMatrix{b}{3&2\\} +  \PLAMatrix{b}{4\\5\\}\PLAMatrix{b}{1&0\\} =  \PLAMatrix{b}{3&2\\3&2\\}\PLAMatrix{b}{4&0\\5&0\\} = \PLAMatrix{b}{7&2\\8&2\\}$$
+
+\noindent \textbf{Block Elimination:}
+
+$$\PLAMatrix{b}{I&&0\\-CA^{-1}&&I} \PLAMatrix{b}{A&B\\C&D\\} = \PLAMatrix{b}{A&&B\\0&&D - CA^{-1}B\\}$$
+
+\noindent \textbf{Note:} Need to lookup more
+
+\end{multicols}
+\section*{Lecture 4: Inverse}
+
+\begin{multicols}{2}
+
+\subsection*{Inverse Matrices}
+
+\noindent The matrix $A$ is \textbf{invertible} if there exists a matrix
+$A^{-1}$ that \textbf{inverts} $A$.
+\begin{itemize}
+    \item Not all matrices have inverses.
+    \item The first question we ask about a square matrix $\rightarrow$
+        Is $A$ invertible?
+\end{itemize}
+
+\noindent \textbf{Six notes about $A^{-1}$:}
+
+\begin{itemize}
+    \item The inverse exists $\iff$ elimination produces $n$ pivots.
+    \item The matrix $A$ cannot have two different inverses $\rightarrow$
+        If $BA = I$ and $CA = I$, then $B = C$.
+    \item If $A$ is invertible, the only solution to $Ax = b$ is
+        $x = A^{-1}b$.
+\end{itemize}
+
+\columnbreak
+
+\noindent \textbf{Six notes about $A^{-1}$ (Cont.)}
+\begin{itemize}
+    \item Suppose there is a nonzero vector $x$ such that $Ax = 0$
+        $\rightarrow$ then $A$ cannot have an inverse. (No matrix can
+        bring $0$ back to $x$.) \\
+        If $A$ is invertible, then $Ax = 0$ can only have the zero solution
+        $x = 0$.
+    \item If $A$ which is a $2 \mult 2$ matrix is invertible $\iff$
+        $ad -bc$ is not zero. \\
+        \textbf{Finding $22 \mult 2$ Inverse:}
+        $$\PLAMatrix{b}{a&b\\c&d\\}^{-1} = \frac{1}{ad - bc}\PLAMatrix{b}{d&-b\\-c&a\\}$$
+\end{itemize}
+\end{multicols}
+\newpage
+
+\noindent \textbf{Theepakorn Phayonrat 67011352 | Linear Algebra Midterm Note}
+
+\section*{Lecture 4: Inverse (Cont.)}
+
+\begin{multicols}{2}
+\subsection*{Inverse Matrices (Cont.)}
+
+\noindent \textbf{Six notes about $A^{-1}$ (Cont.)}
+
+\begin{itemize}
+    \item A diagonal matrix has an inverse provided no diagonal entries
+        are zero:
+        $$\text{If } A = \PLAMatrix{b}{d_{1}&&&&\\&d_{2}&&&\\&&d_{...}&&\\&&&d_{n - 1}&\\&&&&d_{n}\\}$$
+        $$\text{, then } A^{-1} = \PLAMatrix{b}{1/d_{1}&&&&\\&1/d_{2}&&&\\&&1/d_{...}&&\\&&&1/d_{n - 1}&\\&&&&1/d_{n}\\}$$
+\end{itemize}
+
+\subsection*{The Inverse of Product $AB$}
+
+\noindent \textbf{Note:} $(AB)^{-1} = B^{-1}A^{-1}$
+
+$$(AB)(A^{-1}B^{-1}) = A(BB^{-1})A^{-1} = AIA^{-1} = AA^{-1} = I$$
+
+$$\therefore (ABC)^{-1} = C^{-1}B^{-1}A^{-1}$$
+
+\subsection*{Calculating $A^{-1}$ by Gauss-Jordan Elimination}
+
+\begin{itemize}
+    \item $A^{-1}$ might not be explicitly needed.
+    \item To solve $Ax = b$, we can use elimiTo solve $Ax = b$, we can use elimination which goes directly
+        to find $x$.
+    \item Elimination is also the way to calculate $A^{-1}$.
+    \item The Gauss-Jordan idea is to solve for $AA^{-1} = I$, Finding
+        each column of $A^{-1}$.
+    \item $A$ multiplies the first column of $A^{-1}$ (call that $x_{1}$)
+        to give the first column of $I$ (call that $e_{1}$) $\rightarrow$
+        the equation is $Ax_{1} = e_{1} = (1, 0, 0)^{t}$
+    \item Each of the column $x_{1}$, $x_{2}$, $x_{3}$ of $A^{-1}$ is
+        multiplied by $A$ to produce a column of $I$:
+        $$AA^{-1} = A\PLAMatrix{b}{x_{1}&x_{2}&x_{3}\\} = \PLAMatrix{b}{e_{1}&e_{2}&e_{3}\\} = I$$
+    \item To invert a $3 \mult 3$ matrix $A$ $\rightarrow$ we have to
+        solve three systems of equations:
+        \begin{equation}\notag
+        \begin{aligned}
+            Ax_{1} = e_{1} = (1,0,0)^{t}
+            Ax_{2} = e_{2} = (0,1,0)^{t}
+            Ax_{3} = e_{3} = (0,0,1)^{t}
+        \end{aligned}
+        \end{equation}
+    \item Usually the augmented matrix $\PLAMatrix{b}{Ab\\}$ has one
+        extra column $b$, but now we do the similar with $I$.
+    \item $\therefore$ The augmented matrix is actually the block matrix
+        $\PLAMatrix{b}{AI}$
+    \item MORE IN GAUSS-JORDAN
+\end{itemize}
+
+\columnbreak
+
+\subsection*{Singular versus Invertible}
+
+\noindent \textbf{Which matrix have inverses?}
+
+\noindent \textbf{The proposed pivot test:} $A^{-1}$ exists exactly when
+$A$ has a full set of $n$ pivots.
+
+$$\text{If } AC = I \text{, then } CA = I \text{ and } C = A^{-1}$$
+
+\noindent A triangular matrix is invertible $\iff$ no diagonal entries
+are zero.
+
+\subsection*{Elimination = Factorization: $A = LU$}
+
+\textbf{GO READ YOURSELF}
+
+\end{multicols}
+
+\newpage
+
+\noindent \textbf{Theepakorn Phayonrat 67011352 | Linear Algebra Midterm Note}
+
+\section*{Lecture 5: Transposes}
+
+\begin{multicols}{2}
+
+\subsection*{Transposes and Permutations}
+
+\begin{itemize}
+    \item The \textbf{transposes} of $A$ is denoted as $A^{T}$
+    \item The columns of $A^{T}$ is the rows of $A$.
+    \item When $A$ is an $m \mult n$ matrix, the transpose is $n \mult m$.
+        $$\text{If }A = \PLAMatrix{b}{1&2&3\\0&0&4}$$
+        $$\text{, then } A^{T} = \PLAMatrix{b}{1&0\\2&0\\3&4\\}$$
+    \item In transpose of a $L$ becomes $U$ (But the inverse of $L$ is
+        stil $L$.)
+    \item The transpose of $A^{T}$ is $A$.
+    \item Rules for transposes:
+        \begin{itemize}
+            \item $(A + B)^{T} = A^{T} + B^{T}$
+            \item $(AB)^{T} = B^{T}A^{T}$
+            \item $(A^{-1})^{T} = (A^{T})^{-1}$
+            \item $(ABC)^{T} = C^{T}B^{T}A^{T}$
+            \item If $A = LDU$, then $A^{T} = U^{T}D^{T}L^{T}$
+            \item $A^{T}(A^{-1})^{T} = (A^{-1}A^{T})^{T} = I^{T} = I$
+            \item $A^{T}$ is invertible exactly when $A$ is invertible.
+            \item \textbf{Inner \& Outer Products:}
+                \begin{itemize}
+                    \item $^{T}$ is inside: $x^{T}y$ $\rightarrow$ $(1 \times n)(n \times 1)$
+                    \item $^{T}$ is outside: $xy^{T}$ $\rightarrow$ $(n \times 1)(1 \times n)$
+                \end{itemize
+        \end{itemize}
+    \item For any vectors $x$ and $y$:
+        $$(Ax)^{T}y = x^{T}A^{T}y = x^{T}(A^{T}y)$$
+    \item A \textbf{symmetric matrix} has $S^{T} = S$. This means that
+        $s_{ji} = s_{ij}$
+    \item The transpose of $A^{T}A$ is $A^{T}(A^{T})^{T}$ which is
+        $A^{T}A$ again.
+    \item The $(j,i)$ entry of $A^{T}A$ is the product of row $i$ of
+        $A^{T}$ (column $i$ of $A$) with column $j$ of $A$.
+    \item If the $(j,i)$ entry s the same dot product $\rightarrow$ so
+        $A^{T}A$ is symmetric.
+    \item The matrix $AA^{T}$ is also symmetric, but $AA^{T}$ is a
+        different matrix from $A^{T}A$.
+    \item $S^{T} = S$ makes elimination faster because we can work with
+        half the matrix (plus the diagonal).
+    \item The symmetry is in the triple product $S = LDU$ (not $S = LU$).
+    \item If $S^{T} = S$ can be factored into $LDU$ with no row exchanges,
+        then $U$ is exactly $L^{T}$.
+    \item The symmetric factorization of a symmetric matrix is $S = LDL^{T}$.
+    \item If the transpose of $LDL^{T}$ is also $LDL^{T}$ $\rightarrow$
+        then the cost of elimination is cut in half.
+\end{itemize}
+
+\subsection*{Permutation Matrix}
+
+\begin{itemize}
+    \item The transpose plays a special role for a permutation matrix
+        $\rightarrow$ then this matrix $P$ has a single $I$ in every
+        row and every column.
+    \item If $P^{T}$ is also a permutation matrix $\rightarrow$ then
+        this may be the same as $P$ or different matrix.
+    \item Any product of $P_{1}P_{2}$ is again a permutation matrix.
+    \item We can create every $P$ from the identity matrix, by reordering
+        the rows, of $I$.
+    \item There are $6$ $3 \times 3$ permutation matrices:
+        \begin{equation}\notag
+        \begin{aligned}
+             I = \PLAMatrix{b}{1&&\\&1&\\&&1} & P_{31} = \PLAMatrix{b}{&&1\\&1&\\1&&} \\
+             P_{21} = \PLAMatrix{b}{&1&\\1&&\\&&1} & P_{32} = \PLAMatrix{b}{1&&\\&&1\\&1&} \\
+             P_{32}P_{21} = \PLAMatrix{b}{&1&\\&&1\\1&&} & P_{21}P_{32} = \PLAMatrix{b}{&&1\\1&&\\&1&} \\
+        \end{aligned}
+        \end{equation}
+\end{itemize}
+
+\columnbreak
+
+\subsection*{Permutation Matrix (Cont.)}
+
+\begin{itemize}
+        \textbf{Note:} 
+        \begin{itemize}
+            \item There are $n!$ permutation matrices of order $n$.
+            \item $P^{-1}$ is also a permutation matrix.
+            \item $P^{-1}$ is also the same as $P^{T}$.
+        \end{itemize}
+\end{itemize}
+
+\subsection*{The $PA = LU$ Factorization with Row Exchanges}
+
+\textbf{GO READ YOURSELF}
+
+\subsection*{Spaces of Vectors}
+
+\textbf{GO READ YOURSELF}
+
+\end{multicols}
+
+\end{document}
