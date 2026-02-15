@@ -1,7 +1,5 @@
 # PEPE Requirements
 
-[[toc]]
-
 ## EARN Requirements
 
 __**User Requirements**__
