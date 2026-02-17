@@ -201,7 +201,7 @@ who served more than 4 years
 
 Result SQL Statement:
 
-```
+```sql
 Select *
 From recent_presidents
 Where party = 'Republican' And state_born = 'Texus'
