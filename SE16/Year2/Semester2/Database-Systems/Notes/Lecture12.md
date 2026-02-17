@@ -89,7 +89,7 @@ Having count(*) >= 500
 Order By Count(*) Desc
 ```
 
-## EX1 (Republican Presidents)
+## EX1 (Republican Presidents (Origin: Ajarn Suphamit))
 
 Task:
 
@@ -121,7 +121,7 @@ Order By 2 Desc
 
 , where 2 is a column position.
 
-## EX2 (Recent Presidents View)
+## EX2 (Recent Presidents View (Origin: Ajarn Suphamit))
 
 Task:
 
@@ -142,7 +142,7 @@ Where birth_yr > 1880
 
 ### EX3 (ALL and DISTINCT IBM Chapter 5 Question 5.06 and 5.07)
 
-#### EX3.1 (ALL Chapter 5 Question 5.06)
+#### EX3.1 (ALL IBM Chapter 5 Question 5.06)
 
 Task:
 
@@ -154,7 +154,7 @@ List all states where a recent president was born. Order by state
 Problem: We find `Texus` twice and it violates the principle of
 Relational DB where there is no duplicate rows.
 
-#### EX3.2 (DISTINCT Chapter 5 Question 5.07)
+#### EX3.2 (DISTINCT IBM Chapter 5 Question 5.07)
 
 Task:
 
@@ -207,7 +207,7 @@ From recent_presidents
 Where party = 'Republican' And state_born = 'Texus'
 ```
 
-### EX6 (Republican and Democratic Presidents)
+### EX6 (Republican and Democratic Presidents (Origin: Ajarn Suphamit))
 
 Task:
 
@@ -229,8 +229,8 @@ Order By party
 > ```sql
 > Select *
 > From recent_presidents
-> Where party = 'Republican' or 'Democratic'
-> Order by party
+> Where party = 'Republican' Or 'Democratic'
+> Order By party
 > ```
 
 ### EX7 (IN (Origin: Ajarn Suphamit))
@@ -269,7 +269,7 @@ Result SQL Statement:
 ```sql
 Select *
 From recent_presidents
-Where death_age >= 60 Abd death_age <= 70
+Where death_age >= 60 And death_age <= 70
 ```
 
 , or
