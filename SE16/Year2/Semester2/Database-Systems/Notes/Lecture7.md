@@ -68,6 +68,12 @@ What is determinant?:
     - `SNAME` $\rightarrow$ `S#`
     - `(SNAME, P#)` $\rightarrow$ `QTY`
 
+Explanation: We have 4 FDs in this format:
+
+$$X \rightarrow Y$$
+
+where $X$ is determinant and $Y$ is dependent.
+
 $\therefore$ `SSP` is not BCNF because 4 Determinants but 2 Candidate
 Keys.
 
@@ -153,7 +159,7 @@ We will talk about this after Normalization
 ## Midterm Leak
 - None today
 
-## Examples
+## Appendix
 
 ### EX1
 

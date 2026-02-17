@@ -18,9 +18,10 @@ Rules that enforce correctness on the data structures.
 ### Structural constraints
 AKA DB structure (comes with DB
 model or the DBMS which enforces by default)
-    - Entity Integrity $\rightarrow$ Primary key values must not me NULL
-    - Referential Integrity $\rightarrow$ Foreign key values must match
-    primary key values (or be NULL)
+
+- Entity Integrity $\rightarrow$ Primary key values must not me NULL
+- Referential Integrity $\rightarrow$ Foreign key values must match
+primary key values (or be NULL)
 
 #### Entity Integrity (Cont. on Key)
 
@@ -66,7 +67,7 @@ Now we have:
 | S# | P# | QTY |
 | :-: | :-: | :-: |
 
-Let's assume that `S#` and `P#` are Super Key.  
+Let's assume that `(S#, P#)` are Super Key.  
 Now we have:
 
 - `(S#, P#)` is a Candidate Key
@@ -134,7 +135,7 @@ From earlier defined tables we can conclude that:
 - `E4` is wrong because `D20` is invalid department.
 - `E3` might be the manager with no department.
 
-```sql
+```
 CREATE TABLE DEPT (D# ...)
     PRIMARY KEY is D#
 CREATE TABLE EMP (D# ... D# ...)

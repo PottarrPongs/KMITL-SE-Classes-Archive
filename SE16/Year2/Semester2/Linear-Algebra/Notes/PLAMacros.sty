@@ -13,12 +13,12 @@
 \end{#1matrix}
 }
 
-\newcommand{\plotA}[5]{
+\newcommand{\plotA}[6]{
 \begin{tikzpicture}
 \begin{axis}[
     width=#1,
     height=#2,
-    view={45}{35.264},
+    view={55}{35},
     axis equal image,
     axis lines=center,
     box=off,
@@ -30,7 +30,8 @@
     zlabel={$z$},
     xtick distance=#4,
     ytick distance=#4,
-    ztick distance=#4
+    ztick distance=#4,
+    #6
 ]
 #5
 \end{axis}
