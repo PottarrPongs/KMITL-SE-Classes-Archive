@@ -142,6 +142,3 @@ Why throughput is lower than bandwidth?
 > All the Ethernet Cables using outdoor should be black color. Black
 > ones have UV coated.
 
-
-
-
